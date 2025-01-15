@@ -5,6 +5,7 @@ body {
     text-align: center;
     padding: 20px;
 }
+
 h1 {
     color: #0073e6;
 }
@@ -15,4 +16,47 @@ body {
   min-width: 0;
   padding: 0 10px 25px;
   font-family: "Helvetica", "Arial", sans-serif;
+}
+
+h2 {
+  margin-top: 1em;
+  padding-top: 1em;
+}
+
+nav a {
+  margin-left: 20px;
+}
+
+body {
+  color: #444;
+}
+
+h1, h2, strong {
+  color: #222;
+}
+
+header {
+  margin: 0px;
+  font-size: 23px;
+}
+
+article {
+  font-size: 16px;
+}
+
+nav {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 23px;
+}
+
+a {
+  color: #ffa64d;
 }
