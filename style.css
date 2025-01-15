@@ -19,7 +19,7 @@ body {
 /* Header Styling (Top Row) */
 header {
     grid-area: header;
-    font-size: 23px; /* Match the size of body headers */
+    font-size: 20px; /* Slightly reduced for balance */
     margin: 0;
     justify-self: left;
     align-self: end;
@@ -58,17 +58,26 @@ article {
 
 /* Heading Styling (Main Body Titles and Headers) */
 h1 {
-    font-size: 23px; /* Match the size of the header title */
+    font-size: 20px; /* Reduced size for less emphasis than Dan Travers */
     color: #000; /* Ensure main titles are black */
     text-align: left; /* Left-align main titles */
 }
 
 h2 {
-    font-size: 23px; /* Same size as h1 and header title */
+    font-size: 20px; /* Slightly smaller size for subheadings */
     color: #000; /* Ensure subheadings are black */
     margin-top: 1em;
     padding-top: 1em;
     text-align: left; /* Left-align subheadings */
+}
+
+/* Styling for Dan Travers Emphasis */
+.dan-travers {
+    font-size: 30px; /* Large size for emphasis */
+    font-weight: bold; /* Bold for prominence */
+    color: #000; /* Black text */
+    text-align: center; /* Centered for visual focus */
+    margin: 20px 0; /* Add spacing above and below */
 }
 
 /* Responsive Design for Small Screens */
