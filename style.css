@@ -8,3 +8,11 @@ body {
 h1 {
     color: #0073e6;
 }
+
+body {
+  margin: 0 auto;
+  max-width: 700px;
+  min-width: 0;
+  padding: 0 10px 25px;
+  font-family: "Helvetica", "Arial", sans-serif;
+}
