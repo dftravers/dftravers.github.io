@@ -19,13 +19,13 @@ body {
 /* Header Styling (Top Row) */
 header {
     grid-area: header;
-    font-size: 28px; /* Increased size for more emphasis */
-    font-weight: bold; /* Bold text for the header */
+    font-size: 26px; /* Reduced size for a subtler appearance */
+    font-weight: normal; /* Removed bold for a cleaner look */
     margin: 0;
     justify-self: left;
     align-self: end;
     text-align: center; /* Keep header text centered */
-    color: #000; /* Ensure header text is black */
+    color: #333; /* Slightly lighter text for elegance */
 }
 
 /* Navigation Styling (Top Row) */
