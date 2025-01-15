@@ -2,7 +2,7 @@
 body {
     font-family: "Times New Roman", Times, serif;
     background-color: #f9f9f9;
-    color: #444;
+    color: #000; /* Set all text to black */
     text-align: left; /* Align main body text to the left */
     margin: 0 auto;
     max-width: 700px;
@@ -19,11 +19,12 @@ body {
 /* Header Styling (Top Row) */
 header {
     grid-area: header;
-    font-size: 23px;
+    font-size: 23px; /* Match the size of body headers */
     margin: 0;
     justify-self: left;
     align-self: end;
     text-align: center; /* Keep header text centered */
+    color: #000; /* Ensure header text is black */
 }
 
 /* Navigation Styling (Top Row) */
@@ -38,7 +39,7 @@ nav {
 
 nav a {
     margin-left: 20px;
-    color: #ffa64d;
+    color: #ffa64d; /* Orange for navigation links */
     text-decoration: none;
 }
 
@@ -52,18 +53,19 @@ article {
     font-size: 16px;
     border-top: 2px solid gray;
     text-align: left; /* Left-align article content */
+    color: #000; /* Ensure body text is black */
 }
 
 /* Heading Styling (Main Body Titles and Headers) */
 h1 {
-    font-size: 26px;
-    color: #222;
+    font-size: 23px; /* Match the size of the header title */
+    color: #000; /* Ensure main titles are black */
     text-align: left; /* Left-align main titles */
 }
 
 h2 {
-    font-size: 23px;
-    color: #222;
+    font-size: 23px; /* Same size as h1 and header title */
+    color: #000; /* Ensure subheadings are black */
     margin-top: 1em;
     padding-top: 1em;
     text-align: left; /* Left-align subheadings */
