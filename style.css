@@ -1,114 +1,87 @@
+/* General Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Helvetica", "Arial", sans-serif;
     background-color: #f9f9f9;
-    color: #333;
+    color: #444;
     text-align: center;
-    padding: 20px;
-}
-
-h1 {
-    color: #0073e6;
-}
-
-body {
-  margin: 0 auto;
-  max-width: 700px;
-  min-width: 0;
-  padding: 0 10px 25px;
-  font-family: "Helvetica", "Arial", sans-serif;
-}
-
-h2 {
-  margin-top: 1em;
-  padding-top: 1em;
-}
-
-nav a {
-  margin-left: 20px;
-}
-
-body {
-  color: #444;
-}
-
-h1, h2, strong {
-  color: #222;
-}
-
-header {
-  margin: 0px;
-  font-size: 23px;
-}
-
-article {
-  font-size: 16px;
-}
-
-nav {
-  font-size: 18px;
-  letter-spacing: 1px;
-}
-
-h1 {
-  font-size: 26px;
-}
-
-h2 {
-  font-size: 23px;
-}
-
-a {
-  color: #ffa64d;
-}
-
-body {
-  display: grid;
-  row-gap: 5px;
-  grid-template-columns: auto auto;
-  grid-template-rows: 60px auto;
-  grid-template-areas:
-    "header nav"
-    "ct ct"
-}
-
-header {
-  grid-area: header;
-  justify-self: left;
-  align-self: end;
-}
-
-nav {
-  grid-area: nav;
-  justify-self: right;
-  align-self: end;
-}
-
-nav a {
-  text-align: right;
-}
-
-article {
-  grid-area: ct;
-  border-top: 2px solid gray;
-}
-
-@media screen and (max-width: 430px) {
-  body {
-    grid-template-columns: auto;
-    grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 0 10px 25px;
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: auto auto;
+    grid-template-rows: 60px auto;
     grid-template-areas:
-    "header"
-    "nav"
-    "ct"
-  }
-  header, nav {
-    text-align: center;
-    justify-self: center;
-  }
-  nav a {
-    margin: 0 10px;
-  }
+        "header nav"
+        "ct ct";
 }
 
+/* Header Styling */
+header {
+    grid-area: header;
+    font-size: 23px;
+    margin: 0;
+    justify-self: left;
+    align-self: end;
+}
 
+/* Navigation Styling */
+nav {
+    grid-area: nav;
+    font-size: 18px;
+    letter-spacing: 1px;
+    justify-self: right;
+    align-self: end;
+}
 
+nav a {
+    margin-left: 20px;
+    text-align: right;
+    color: #ffa64d;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Article Styling */
+article {
+    grid-area: ct;
+    font-size: 16px;
+    border-top: 2px solid gray;
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 26px;
+    color: #222;
+}
+
+h2 {
+    font-size: 23px;
+    color: #222;
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 430px) {
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
+        grid-template-areas:
+            "header"
+            "nav"
+            "ct";
+    }
+
+    header, nav {
+        text-align: center;
+        justify-self: center;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+}
