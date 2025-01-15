@@ -55,7 +55,7 @@ article {
     border-top: 2px solid #000;
     text-align: left; /* Left-align article content */
     color: #000; /* Ensure body text is black */
-    margin-top: 20px; /* Add more space under the dividing line */
+    margin-top: 10px; /* Reduced space under the dividing line */
 }
 
 /* Heading Styling (Main Body Titles and Headers) */
