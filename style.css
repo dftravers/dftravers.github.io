@@ -1,7 +1,7 @@
 /* General Body Styling */
 body {
     font-family: "Times New Roman", Times, serif;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     color: #000; /* Set all text to black */
     text-align: left; /* Align main body text to the left */
     margin: 0 auto;
@@ -25,7 +25,7 @@ header {
     justify-self: left;
     align-self: end;
     text-align: center; /* Keep header text centered */
-    color: #333; /* Slightly lighter text for elegance */
+    color: #000; /* Slightly lighter text for elegance */
 }
 
 /* Navigation Styling (Top Row) */
@@ -40,7 +40,7 @@ nav {
 
 nav a {
     margin-left: 20px;
-    color: #ffa64d; /* Orange for navigation links */
+    color: #de650e; /* Orange for navigation links */
     text-decoration: none;
 }
 
@@ -55,7 +55,7 @@ article {
     border-top: 2px solid #000;
     text-align: left; /* Left-align article content */
     color: #000; /* Ensure body text is black */
-    margin-top: 10px; /* Reduced space under the dividing line */
+    margin-top: 0; /* Removed space under the dividing line */
 }
 
 /* Heading Styling (Main Body Titles and Headers) */
