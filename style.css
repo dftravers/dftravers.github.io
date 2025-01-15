@@ -51,7 +51,7 @@ nav a:hover {
 article {
     grid-area: ct;
     font-size: 16px;
-    border-top: 2px solid gray;
+    border-top: 2px solid #000;
     text-align: left; /* Left-align article content */
     color: #000; /* Ensure body text is black */
 }
