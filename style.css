@@ -102,3 +102,22 @@ h2 {
         margin: 0 10px;
     }
 }
+
+.team-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds spacing between label and dropdown */
+    margin-bottom: 15px; /* Adds spacing between rows */
+}
+
+.team-selection label {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 100px; /* Ensures labels are aligned */
+}
+
+.team-selection select {
+    font-size: 16px;
+    padding: 5px;
+    width: 220px; /* Adjust dropdown width */
+}
