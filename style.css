@@ -1,6 +1,6 @@
 /* General Body Styling */
 body {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Times New Roman", Times, serif; /* Matches Writing Page */
     background-color: #ffffff;
     color: #000; /* Set all text to black */
     text-align: left; /* Align main body text to the left */
@@ -16,23 +16,20 @@ body {
         "ct ct";
 }
 
-/* Header Styling (Top Row) */
+/* Header Styling (Main Title "Dan Travers") */
 header {
     grid-area: header;
-    margin: 0;
-    justify-self: left;
-    align-self: end;
-    text-align: center; /* Keep header text centered */
-    color: #000; /* Ensure header text is black */
+    margin-bottom: 15px; /* Adds spacing below header */
+    padding-bottom: 5px; /* Ensures enough space */
+    border-bottom: 2px solid black; /* Keeps the line under the header */
 }
 
-/* Ensuring Consistent Styling for the 'Dan Travers' Header */
 header h1 {
-    font-size: 26px; /* Consistent font size */
-    font-weight: normal; /* Remove boldness */
-    text-align: center; /* Ensure centered text */
-    font-family: "Times New Roman", Times, serif; /* Match the main font */
-    margin: 0;
+    font-size: 36px; /* Adjusted to match Writing Page */
+    font-weight: normal; /* Ensures it's not bold */
+    text-align: left; /* Match Writing page alignment */
+    margin: 10px 0; /* Ensures consistent spacing */
+    font-family: "Times New Roman", Times, serif; /* Enforce correct font */
 }
 
 /* Navigation Styling (Top Row) */
@@ -43,6 +40,8 @@ nav {
     justify-self: right;
     align-self: end;
     text-align: right; /* Keep navigation links aligned to the right */
+    margin-top: -10px; /* Moves the navigation closer to the header */
+    font-family: "Times New Roman", Times, serif; /* Ensures font consistency */
 }
 
 nav a {
@@ -65,20 +64,21 @@ article {
     margin-top: 0; /* Removed space under the dividing line */
 }
 
-/* Heading Styling (Main Body Titles and Headers) */
+/* Heading Styling (Subheadings & Main Page Titles) */
 h1 {
-    font-size: 28px; /* Larger size for more emphasis */
-    font-weight: normal; /* Ensuring consistency across pages */
+    font-size: 36px; /* Matches Writing Page */
+    font-weight: normal; /* Ensures consistency across pages */
     color: #000; /* Ensure main titles are black */
     text-align: left; /* Left-align main titles */
+    font-family: "Times New Roman", Times, serif; /* Match Writing Page */
 }
 
 h2 {
     font-size: 24px; /* Slightly smaller size for subheadings */
-    font-weight: bold; /* Bold text for subheadings */
+    font-weight: bold; /* Keep subheadings bold */
     color: #000; /* Ensure subheadings are black */
-    margin-top: 1em;
-    padding-top: 1em;
+    margin-top: 20px; /* Adjust spacing */
+    padding-top: 10px; /* Ensure separation from previous elements */
     text-align: left; /* Left-align subheadings */
 }
 
