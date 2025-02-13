@@ -1,58 +1,44 @@
 /* General Body Styling */
 body {
-    font-family: "Times New Roman", Times, serif; /* Matches Writing Page */
+    font-family: "Times New Roman", Times, serif;
     background-color: #ffffff;
-    color: #000; /* Set all text to black */
-    text-align: left; /* Align main body text to the left */
+    color: #000;
+    text-align: left;
     margin: 0 auto;
     max-width: 700px;
     padding: 0 10px 25px;
-    display: grid;
-    row-gap: 5px;
-    grid-template-columns: auto auto;
-    grid-template-rows: 60px auto;
-    grid-template-areas:
-        "header nav"
-        "ct ct";
 }
 
 /* Header Styling */
 header {
-    grid-area: header;
-    margin-bottom: 15px; /* Adjust spacing below header */
-    padding-bottom: 5px; /* Space before underline */
-    border-bottom: 2px solid black; /* Keeps a single underline */
+    text-align: left;
+    margin-bottom: 0; /* Removes extra space */
+    padding-bottom: 0; /* Ensures no padding under */
 }
 
-/* Remove accidental extra horizontal lines */
-article h1, article h2 {
-    border-bottom: none !important;
-}
-
-/* Ensure consistent header styling */
+/* Standardized Main Heading (`h1`) - Dan Travers */
 header h1 {
-    font-size: 36px; /* Adjusted to match Writing Page */
-    font-weight: normal; /* Ensures it's not bold */
-    text-align: left; /* Match Writing page alignment */
-    margin: 10px 0; /* Ensures consistent spacing */
-    font-family: "Times New Roman", Times, serif; /* Enforce correct font */
+    font-size: 28px; /* Smaller than before */
+    font-weight: normal;
+    text-align: left;
+    margin-bottom: 5px; /* Keeps it close to the nav */
+    font-family: "Times New Roman", Times, serif;
 }
 
 /* Navigation Styling */
 nav {
-    grid-area: nav;
+    text-align: right;
     font-size: 18px;
     letter-spacing: 1px;
-    justify-self: right;
-    align-self: end;
-    text-align: right; /* Keep navigation links aligned to the right */
-    margin-top: -10px; /* Moves the navigation closer to the header */
-    font-family: "Times New Roman", Times, serif; /* Ensures font consistency */
+    margin-bottom: 10px; /* Space between nav and content */
+    border-bottom: 2px solid black; /* Black underline now applies only here */
+    padding-bottom: 5px;
 }
 
+/* Navigation Links */
 nav a {
     margin-left: 20px;
-    color: #de650e; /* Orange for navigation links */
+    color: #de650e;
     text-decoration: none;
 }
 
@@ -60,55 +46,45 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Article Styling (Main Content) */
+/* Article Styling */
 article {
-    grid-area: ct;
-    font-size: 16px;
-    border-top: 2px solid #000;
-    text-align: left; /* Left-align article content */
-    color: #000; /* Ensure body text is black */
-    margin-top: 0; /* Removed space under the dividing line */
+    border-top: none; /* Removes double lines */
+    margin-top: 20px;
+    padding-top: 15px;
 }
 
-/* Ensure all main headers (Page titles) have the same look */
+/* Standardize Main Page Headers (`h1`) */
 h1 {
-    font-size: 36px; /* Matches Writing Page */
-    font-weight: normal; /* No extra bold */
+    font-size: 36px;
+    font-weight: normal;
     text-align: left;
     margin-bottom: 15px;
     font-family: "Times New Roman", Times, serif;
 }
 
-/* Ensure all subheaders (Section titles) match */
+/* Standardize Subheaders (`h2`) */
 h2 {
-    font-size: 24px; /* Keep consistent */
+    font-size: 24px;
     font-weight: bold;
     text-align: left;
     margin-top: 20px;
 }
 
-/* Ensure paragraph text is consistent */
+/* Standardize Paragraph Text (`p`) */
 p {
-    font-size: 18px; /* Matches Writing Page */
+    font-size: 18px;
     line-height: 1.5;
-    color: #000;
     margin-bottom: 10px;
 }
 
 /* Responsive Design for Small Screens */
 @media screen and (max-width: 430px) {
     body {
-        grid-template-columns: auto;
-        grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
-        grid-template-areas:
-            "header"
-            "nav"
-            "ct";
+        text-align: center;
     }
 
-    header, nav {
-        text-align: center; /* Keep header and nav centered for small screens */
-        justify-self: center;
+    nav {
+        text-align: center;
     }
 
     nav a {
@@ -121,8 +97,8 @@ p {
 .football-score-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers everything */
-    gap: 15px; /* Space between elements */
+    align-items: center;
+    gap: 15px;
     margin-top: 20px;
 }
 
@@ -130,15 +106,15 @@ p {
 .team-selection {
     display: flex;
     align-items: center;
-    gap: 10px; /* Spacing between label & select */
+    gap: 10px;
     width: 100%;
-    max-width: 400px; /* Limit width for better alignment */
+    max-width: 400px;
     justify-content: space-between;
 }
 
 /* Improve select dropdown appearance */
 .team-selection select {
-    width: 250px; /* Ensure proper width */
+    width: 250px;
     font-size: 16px;
     padding: 8px;
 }
