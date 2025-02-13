@@ -16,6 +16,7 @@ body {
         "ct ct";
 }
 
+/* Header Styling */
 header {
     grid-area: header;
     margin-bottom: 15px; /* Adjust spacing below header */
@@ -28,7 +29,7 @@ article h1, article h2 {
     border-bottom: none !important;
 }
 
-
+/* Ensure consistent header styling */
 header h1 {
     font-size: 36px; /* Adjusted to match Writing Page */
     font-weight: normal; /* Ensures it's not bold */
@@ -37,7 +38,7 @@ header h1 {
     font-family: "Times New Roman", Times, serif; /* Enforce correct font */
 }
 
-/* Navigation Styling (Top Row) */
+/* Navigation Styling */
 nav {
     grid-area: nav;
     font-size: 18px;
@@ -94,7 +95,6 @@ p {
     margin-bottom: 10px;
 }
 
-
 /* Responsive Design for Small Screens */
 @media screen and (max-width: 430px) {
     body {
@@ -116,39 +116,41 @@ p {
     }
 }
 
+/* 🔹 Predict Page Styling Fixes */
+/* Center and align form elements properly */
+.football-score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything */
+    gap: 15px; /* Space between elements */
+    margin-top: 20px;
+}
 
-/* Ensure the team selection is well-aligned */
+/* Improve label and dropdown alignment */
 .team-selection {
     display: flex;
     align-items: center;
-    justify-content: left;
-    gap: 15px; /* Proper spacing between label and dropdown */
-    margin-bottom: 10px; /* Add spacing between home & away sections */
+    gap: 10px; /* Spacing between label & select */
+    width: 100%;
+    max-width: 400px; /* Limit width for better alignment */
+    justify-content: space-between;
 }
 
-/* Ensure labels align properly */
-.team-selection label {
-    font-size: 18px;
-    font-weight: bold;
-    min-width: 120px; /* Consistent label width for alignment */
-    text-align: right;
-}
-
-/* Ensure dropdowns are properly sized */
+/* Improve select dropdown appearance */
 .team-selection select {
+    width: 250px; /* Ensure proper width */
     font-size: 16px;
     padding: 8px;
-    width: 250px; /* Wider dropdown for better readability */
 }
 
-/* Center the Predict Button below dropdowns */
+/* Center Predict Button */
 .predict-container {
     display: flex;
-    justify-content: left;
-    margin-top: 20px; /* Space between dropdowns & button */
+    justify-content: center;
+    margin-top: 15px;
 }
 
-/* Style the Predict Button */
+/* Improve button styling */
 #predict-button {
     font-size: 18px;
     padding: 12px 20px;
@@ -156,9 +158,17 @@ p {
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px; /* Rounded edges */
+    border-radius: 5px;
 }
 
 #predict-button:hover {
     background-color: #0056b3;
+}
+
+/* Center the Prediction Result */
+#result {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
 }
