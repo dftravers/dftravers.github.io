@@ -13,19 +13,22 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Ensures "Dan Travers" sits lower */
+    align-items: center; /* Centers both "Dan Travers" and nav links */
     margin-bottom: 0;
-    padding-bottom: 5px; /* Moves closer to the black line */
+    padding-bottom: 0;
 }
 
 /* Standardized Main Heading (`h1`) - Dan Travers */
 header h1 {
-    font-size: 26px; /* Keep slightly smaller */
+    font-size: 26px;
     font-weight: normal;
     text-align: left;
-    margin: 0; /* Remove extra spacing */
-    padding: 0; /* Prevent gaps */
-    line-height: 1; /* Ensure tight spacing */
+    margin: 0; /* Removes unwanted spacing */
+    padding: 0; /* Ensures it's flush with nav */
+    line-height: 1; /* Removes extra spacing within text */
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+    height: 30px; /* Matches the navigation link height */
     font-family: "Times New Roman", Times, serif;
 }
 
@@ -34,12 +37,14 @@ nav {
     text-align: right;
     font-size: 18px;
     letter-spacing: 1px;
-    border-bottom: 2px solid black; /* The only underline */
+    border-bottom: 2px solid black;
     padding-bottom: 5px;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end; /* Ensures nav aligns with "Dan Travers" */
+    align-items: center; /* Ensures nav aligns with Dan Travers */
+    height: 30px; /* Same height as header h1 */
 }
+
 
 
 
