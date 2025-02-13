@@ -9,47 +9,32 @@ body {
     padding: 0 10px 25px;
 }
 
-/* Header Styling */
-header {
+/* Header & Navigation Container */
+.header-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Moves "Dan Travers" down to align with nav */
-    margin-bottom: 0;
-    padding-bottom: 0;
-    height: 45px; /* Adjusted for perfect spacing */
-}
-
-/* Standardized Main Heading (`h1`) - Dan Travers */
-header h1 {
-    font-size: 26px; /* Slightly smaller */
-    font-weight: normal;
-    text-align: left;
-    margin: 0; /* Removes unwanted spacing */
-    padding: 0; /* Prevents gaps */
-    line-height: 1.2; /* Fine-tunes spacing */
-    font-family: "Times New Roman", Times, serif;
-    height: 45px; /* Matches nav height for perfect alignment */
-    display: flex;
-    align-items: flex-end; /* Ensures text is pushed down */
-    padding-bottom: 3px; /* Fine-tunes exact placement */
-}
-
-/* Navigation Styling */
-nav {
-    text-align: right;
-    font-size: 18px;
-    letter-spacing: 1px;
+    align-items: center; /* Ensures everything is aligned */
+    padding-bottom: 5px; /* Adjust spacing */
     border-bottom: 2px solid black; /* The only underline */
-    padding-bottom: 5px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end; /* Aligns nav with "Dan Travers" */
-    height: 45px; /* Matches header h1 height */
+}
+
+/* "Dan Travers" Title */
+header h1 {
+    font-size: 26px;
+    font-weight: normal;
+    margin: 0; /* Remove extra spacing */
+    padding: 0; /* Prevents gaps */
+    font-family: "Times New Roman", Times, serif;
 }
 
 /* Navigation Links */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
 nav a {
-    margin-left: 20px;
+    font-size: 18px;
     color: #de650e; /* Orange navigation links */
     text-decoration: none;
 }
@@ -94,8 +79,15 @@ p {
         text-align: center;
     }
 
-    nav {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        margin-top: 5px;
     }
 
     nav a {
@@ -104,7 +96,6 @@ p {
 }
 
 /* 🔹 Predict Page Styling Fixes */
-/* Center and align form elements properly */
 .football-score-container {
     display: flex;
     flex-direction: column;
@@ -113,7 +104,7 @@ p {
     margin-top: 20px;
 }
 
-/* Improve label and dropdown alignment */
+/* Label and Dropdown Styling */
 .team-selection {
     display: flex;
     align-items: center;
@@ -123,7 +114,6 @@ p {
     justify-content: space-between;
 }
 
-/* Improve select dropdown appearance */
 .team-selection select {
     width: 250px;
     font-size: 16px;
@@ -137,7 +127,6 @@ p {
     margin-top: 15px;
 }
 
-/* Improve button styling */
 #predict-button {
     font-size: 18px;
     padding: 12px 20px;
@@ -152,11 +141,11 @@ p {
     background-color: #0056b3;
 }
 
-/* Center the Prediction Result & Ensure Plain Text */
+/* Plain Text for Results */
 #result {
     font-size: 18px;
-    font-weight: normal; /* No bold */
-    font-style: normal; /* No italics */
+    font-weight: normal;
+    font-style: normal;
     text-align: center;
     margin-top: 15px;
 }
