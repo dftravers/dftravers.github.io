@@ -103,21 +103,49 @@ h2 {
     }
 }
 
+
+/* Ensure the team selection is well-aligned */
 .team-selection {
     display: flex;
     align-items: center;
-    gap: 10px; /* Adds spacing between label and dropdown */
-    margin-bottom: 15px; /* Adds spacing between rows */
+    justify-content: left;
+    gap: 15px; /* Proper spacing between label and dropdown */
+    margin-bottom: 10px; /* Add spacing between home & away sections */
 }
 
+/* Ensure labels align properly */
 .team-selection label {
     font-size: 18px;
     font-weight: bold;
-    min-width: 100px; /* Ensures labels are aligned */
+    min-width: 120px; /* Consistent label width for alignment */
+    text-align: right;
 }
 
+/* Ensure dropdowns are properly sized */
 .team-selection select {
     font-size: 16px;
-    padding: 5px;
-    width: 220px; /* Adjust dropdown width */
+    padding: 8px;
+    width: 250px; /* Wider dropdown for better readability */
+}
+
+/* Center the Predict Button below dropdowns */
+.predict-container {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px; /* Space between dropdowns & button */
+}
+
+/* Style the Predict Button */
+#predict-button {
+    font-size: 18px;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded edges */
+}
+
+#predict-button:hover {
+    background-color: #0056b3;
 }
