@@ -19,13 +19,20 @@ body {
 /* Header Styling (Top Row) */
 header {
     grid-area: header;
-    font-size: 26px; /* Reduced size for a subtler appearance */
-    font-weight: normal; /* Removed bold for a cleaner look */
     margin: 0;
     justify-self: left;
     align-self: end;
     text-align: center; /* Keep header text centered */
-    color: #000; /* Slightly lighter text for elegance */
+    color: #000; /* Ensure header text is black */
+}
+
+/* Ensuring Consistent Styling for the 'Dan Travers' Header */
+header h1 {
+    font-size: 26px; /* Consistent font size */
+    font-weight: normal; /* Remove boldness */
+    text-align: center; /* Ensure centered text */
+    font-family: "Times New Roman", Times, serif; /* Match the main font */
+    margin: 0;
 }
 
 /* Navigation Styling (Top Row) */
@@ -61,7 +68,7 @@ article {
 /* Heading Styling (Main Body Titles and Headers) */
 h1 {
     font-size: 28px; /* Larger size for more emphasis */
-    font-weight: bold; /* Bold text for main titles */
+    font-weight: normal; /* Ensuring consistency across pages */
     color: #000; /* Ensure main titles are black */
     text-align: left; /* Left-align main titles */
 }
