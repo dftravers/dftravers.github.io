@@ -35,7 +35,7 @@ header h1 {
     font-family: "Times New Roman", Times, serif;
     display: flex;
     align-items: flex-end;
-    padding-bottom: 3px;
+    padding-bottom: 5px; /* Pushes "Dan Travers" down */
 }
 
 /* Navigation Styling */
@@ -48,7 +48,7 @@ nav {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    height: 45px;
+    height: 50px; /* Matches header height */
 }
 
 /* Navigation Links */
@@ -56,6 +56,7 @@ nav a {
     margin-left: 20px;
     color: #de650e;
     text-decoration: none;
+    padding-bottom: 3px; /* Pushes links down */
 }
 
 nav a:hover {
