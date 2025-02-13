@@ -16,7 +16,7 @@
     </header>
     <nav>
       <a href="/writing/">Writing</a>
-      <a href="../">About</a>
+      <a href="/about/">About</a>
       <a href="/predict/">Predict</a>
     </nav>
     <article>
@@ -24,9 +24,7 @@
       <p>Select two football teams and get a predicted score.</p>
     </article>
 
-    <!-- Football Score Predictor UI -->
-    <h2>Football Score Predictor</h2>
-
+    <!-- Team Selection UI -->
     <div class="football-score-container">
         <div class="team-selection">
             <label for="team1">Home team:</label>
@@ -88,7 +86,7 @@
     </div>
 
     <!-- Prediction Result Display -->
-    <p id="result"></p>
+    <p id="result" class="result-message"></p>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -102,16 +100,16 @@
               const team2 = team2Select.value;
   
               if (!team1 || !team2) {
-                  resultDisplay.innerHTML = "Please select both teams!";
+                  resultDisplay.innerText = "Please select both teams!";
                   return;
               }
 
               if (team1 === team2) {
-                  resultDisplay.innerHTML = "Teams must be different!";
+                  resultDisplay.innerText = "Teams must be different!";
                   return;
               }
   
-              resultDisplay.innerHTML = "<em>Predicting...</em>"; // Loading state
+              resultDisplay.innerText = "Predicting..."; // Loading state
   
               try {
                   const response = await fetch("https://backend-agu8.onrender.com/predict", {
@@ -125,10 +123,10 @@
                   }
   
                   const data = await response.json();
-                  resultDisplay.innerHTML = `Predicted Score: ${data.prediction}`;
+                  resultDisplay.innerText = `Predicted Score: ${data.prediction}`;
               } catch (error) {
                   console.error("Error:", error);
-                  resultDisplay.innerHTML = "Error fetching prediction.";
+                  resultDisplay.innerText = "Error fetching prediction.";
               }
           });
       });
