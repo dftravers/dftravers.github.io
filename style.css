@@ -69,23 +69,31 @@ article {
     margin-top: 0; /* Removed space under the dividing line */
 }
 
-/* Heading Styling (Subheadings & Main Page Titles) */
+/* Ensure all main headers (Page titles) have the same look */
 h1 {
     font-size: 36px; /* Matches Writing Page */
-    font-weight: normal; /* Ensures consistency across pages */
-    color: #000; /* Ensure main titles are black */
-    text-align: left; /* Left-align main titles */
-    font-family: "Times New Roman", Times, serif; /* Match Writing Page */
+    font-weight: normal; /* No extra bold */
+    text-align: left;
+    margin-bottom: 15px;
+    font-family: "Times New Roman", Times, serif;
 }
 
+/* Ensure all subheaders (Section titles) match */
 h2 {
-    font-size: 24px; /* Slightly smaller size for subheadings */
-    font-weight: bold; /* Keep subheadings bold */
-    color: #000; /* Ensure subheadings are black */
-    margin-top: 20px; /* Adjust spacing */
-    padding-top: 10px; /* Ensure separation from previous elements */
-    text-align: left; /* Left-align subheadings */
+    font-size: 24px; /* Keep consistent */
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
 }
+
+/* Ensure paragraph text is consistent */
+p {
+    font-size: 18px; /* Matches Writing Page */
+    line-height: 1.5;
+    color: #000;
+    margin-bottom: 10px;
+}
+
 
 /* Responsive Design for Small Screens */
 @media screen and (max-width: 430px) {
