@@ -133,8 +133,8 @@
     
                     const data = await response.json();
     
-                    // ✅ Fix: Ensure "Best Guess Score" is displayed instead of "Best SuperBru Prediction"
-                    if (data["Home Predicted Goals"] !== undefined) {
+                    // ✅ Ensure "Best Guess Score" is displayed correctly
+                    if (data["Predicted Goals (Home)"] !== undefined) {
                         resultDisplay.innerHTML = `
                             <strong>Home Predicted Goals:</strong> ${data["Predicted Goals (Home)"]} <br>
                             <strong>Away Predicted Goals:</strong> ${data["Predicted Goals (Away)"]} <br>
@@ -153,6 +153,7 @@
             });
         });
     </script>
+    
     
       
       
