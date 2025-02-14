@@ -116,23 +116,33 @@
                   return;
               }
   
-              resultDisplay.innerText = "Predicting..."; // Loading state
+              resultDisplay.innerText = "Predicting..."; // Show loading state
   
               try {
                   const response = await fetch("https://backend-agu8.onrender.com/predict", {
                       method: "POST",
-                      headers: { "Content-Type": "application/json" },
+                      headers: { 
+                          "Content-Type": "application/json",
+                          "Accept": "application/json"
+                      },
                       body: JSON.stringify({ team1, team2 }),
                   });
   
                   if (!response.ok) {
-                      throw new Error("Server error, please try again.");
+                      throw new Error(`Server error! Status: ${response.status}`);
                   }
-  
+
                   const data = await response.json();
-                  resultDisplay.innerText = `Predicted Score: ${data.prediction}`;
+
+                  if (data["Best Guess Score"]) {
+                      resultDisplay.innerText = `Predicted Score: ${data["Best Guess Score"]}`;
+                  } else {
+                      resultDisplay.innerText = "Error: Unexpected response format.";
+                      console.error("Unexpected API response:", data);
+                  }
+
               } catch (error) {
-                  console.error("Error:", error);
+                  console.error("Error fetching prediction:", error);
                   resultDisplay.innerText = "Error fetching prediction.";
               }
           });
