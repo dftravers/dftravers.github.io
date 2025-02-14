@@ -1,38 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+/* General Body Styling */
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #ffffff;
+    color: #000;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 20px 10px 25px; /* Added `20px` top padding to move everything down */
+}
 
-    <title>Page Not Found</title>
-    <meta name="description" content="Error: page not found.">
-    <meta name="author" content="Dan Travers">
-    <link rel="stylesheet" type="text/css" href="/style.css">
-  </head>
-  <body>
+/* Header & Navigation Container */
+.header-container {
+    margin-top: 15px; /* Moves everything down slightly */
+}
 
-    <!-- Header & Navigation -->
-    <div class="header-container">
-      <header>
-        <h1>Dan Travers</h1> 
-      </header>
-      <nav>
-        <a href="/writing/">Writing</a>
-        <a href="/">About</a> 
-        <a href="/predict/">Predict</a>
-      </nav>
-    </div>
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 50px; /* Adjusted for spacing */
+}
 
-    <!-- Main Content -->
-    <article>
-      <h2>Oops! Page not found.</h2>
-      <p>Sorry, the page you are looking for doesn’t exist.</p>
-      
-      <!-- Back to Home Button -->
-      <div class="back-home">
-        <a href="/" class="home-button">Go Back to Home</a>
-      </div>
-    </article>
+/* Standardized Main Heading (`h1`) - Dan Travers */
+header h1 {
+    font-size: 26px;
+    font-weight: normal;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    font-family: "Times New Roman", Times, serif;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5px; /* Pushes "Dan Travers" down */
+}
 
-  </body>
-</html>
+/* Navigation Styling */
+nav {
+    text-align: right;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 50px; /* Matches header height */
+}
+
+/* Navigation Links */
+nav a {
+    margin-left: 20px;
+    color: #de650e;
+    text-decoration: none;
+    padding-bottom: 3px; /* Pushes links down */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Article Styling */
+article {
+    margin-top: 30px; /* Moves the content down slightly */
+    padding-top: 15px;
+}
+
+/* Standardize Main Page Headers (`h1`) */
+h1 {
+    font-size: 36px;
+    font-weight: normal;
+    text-align: left;
+    margin-bottom: 15px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* Standardize Subheaders (`h2`) */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+}
+
+/* Standardize Paragraph Text (`p`) */
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 430px) {
+    body {
+        text-align: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+}
+
+/* 🔹 Predict Page Styling Fixes */
+.football-score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Improve label and dropdown alignment */
+.team-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    justify-content: space-between;
+}
+
+/* Improve select dropdown appearance */
+.team-selection select {
+    width: 250px;
+    font-size: 16px;
+    padding: 8px;
+}
+
+/* Center Predict Button */
+.predict-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* Improve button styling */
+#predict-button {
+    font-size: 18px;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#predict-button:hover {
+    background-color: #0056b3;
+}
+
+/* Center the Prediction Result & Ensure Plain Text */
+#result {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    margin-top: 15px;
+}
