@@ -9,19 +9,26 @@ body {
     padding: 20px 10px 25px; /* Added `20px` top padding to move everything down */
 }
 
-/* Header & Navigation Container */
-.header-container {
-    margin-top: 15px; /* Moves everything down slightly */
+/* Header Styling (Top Row) */
+header {
+    grid-area: header;
+    font-size: 26px; /* Reduced size for a subtler appearance */
+    font-weight: normal; /* Removed bold for a cleaner look */
+    margin: 0;
+    justify-self: left;
+    align-self: end;
+    text-align: center; /* Keep header text centered */
+    color: #000; /* Slightly lighter text for elegance */
 }
 
-/* Header Styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 0;
-    padding-bottom: 0;
-    height: 50px; /* Adjusted for spacing */
+/* Navigation Styling (Top Row) */
+nav {
+    grid-area: nav;
+    font-size: 18px;
+    letter-spacing: 1px;
+    justify-self: right;
+    align-self: end;
+    text-align: right; /* Keep navigation links aligned to the right */
 }
 
 /* Standardized Main Heading (`h1`) - Dan Travers */
@@ -38,18 +45,6 @@ header h1 {
     padding-bottom: 5px; /* Pushes "Dan Travers" down */
 }
 
-/* Navigation Styling */
-nav {
-    text-align: right;
-    font-size: 18px;
-    letter-spacing: 1px;
-    border-bottom: 2px solid black;
-    padding-bottom: 5px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    height: 50px; /* Matches header height */
-}
 
 /* Navigation Links */
 nav a {
