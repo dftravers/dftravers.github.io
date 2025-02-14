@@ -134,8 +134,14 @@
 
                   const data = await response.json();
 
-                  if (data["Best Guess Score"]) {
-                      resultDisplay.innerText = `Predicted Score: ${data["Best Guess Score"]}`;
+                  // ✅ Fix: Update to match the new API response format
+                  if (data["Home Predicted Goals"] !== undefined) {
+                      resultDisplay.innerHTML = `
+                          <strong>Home Predicted Goals:</strong> ${data["Home Predicted Goals"]} <br>
+                          <strong>Away Predicted Goals:</strong> ${data["Away Predicted Goals"]} <br>
+                          <strong>Most Likely Score:</strong> ${data["Most Likely Score"]} <br>
+                          <strong>Best SuperBru Prediction:</strong> ${data["Best SuperBru Prediction"]}
+                      `;
                   } else {
                       resultDisplay.innerText = "Error: Unexpected response format.";
                       console.error("Unexpected API response:", data);
