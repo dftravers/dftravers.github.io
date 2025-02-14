@@ -6,19 +6,26 @@ body {
     text-align: left;
     margin: 0 auto;
     max-width: 700px;
-    padding: 20px 10px 25px; /* Added `20px` top padding to move everything down */
+    padding: 0 10px 25px;
+    display: grid;
+    row-gap: 5px;
+    grid-template-columns: auto auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas:
+        "header nav"
+        "ct ct";
 }
 
 /* Header Styling (Top Row) */
 header {
     grid-area: header;
-    font-size: 26px; /* Reduced size for a subtler appearance */
-    font-weight: normal; /* Removed bold for a cleaner look */
+    font-size: 26px;
+    font-weight: normal;
     margin: 0;
     justify-self: left;
     align-self: end;
-    text-align: center; /* Keep header text centered */
-    color: #000; /* Slightly lighter text for elegance */
+    text-align: center;
+    color: #000;
 }
 
 /* Navigation Styling (Top Row) */
@@ -28,82 +35,56 @@ nav {
     letter-spacing: 1px;
     justify-self: right;
     align-self: end;
-    text-align: right; /* Keep navigation links aligned to the right */
+    text-align: right;
 }
 
-/* Standardized Main Heading (`h1`) - Dan Travers */
-header h1 {
-    font-size: 26px;
-    font-weight: normal;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-    line-height: 1.2;
-    font-family: "Times New Roman", Times, serif;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 5px; /* Pushes "Dan Travers" down */
-}
-
-
-/* Navigation Links */
 nav a {
     margin-left: 20px;
     color: #de650e;
     text-decoration: none;
-    padding-bottom: 3px; /* Pushes links down */
+    padding-bottom: 3px;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
-/* Article Styling */
+/* Article Styling (Main Content) */
 article {
-    margin-top: 30px; /* Moves the content down slightly */
+    grid-area: ct;
+    font-size: 16px;
+    border-top: 2px solid #000;
+    text-align: left;
+    color: #000;
+    margin-top: 0;
     padding-top: 15px;
 }
 
-/* Standardize Main Page Headers (`h1`) */
+/* Heading Styling */
 h1 {
-    font-size: 36px;
-    font-weight: normal;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
     text-align: left;
     margin-bottom: 15px;
-    font-family: "Times New Roman", Times, serif;
 }
 
-/* Standardize Subheaders (`h2`) */
 h2 {
     font-size: 24px;
     font-weight: bold;
-    text-align: left;
+    color: #000;
     margin-top: 20px;
+    text-align: left;
 }
 
-/* Standardize Paragraph Text (`p`) */
+/* Standardize Paragraph Text */
 p {
     font-size: 18px;
     line-height: 1.5;
     margin-bottom: 10px;
 }
 
-/* Responsive Design for Small Screens */
-@media screen and (max-width: 430px) {
-    body {
-        text-align: center;
-    }
-
-    nav {
-        text-align: center;
-    }
-
-    nav a {
-        margin: 0 10px;
-    }
-}
-
-/* 🔹 Predict Page Styling Fixes */
+/* Football Score Section Styling */
 .football-score-container {
     display: flex;
     flex-direction: column;
@@ -151,11 +132,32 @@ p {
     background-color: #0056b3;
 }
 
-/* Center the Prediction Result & Ensure Plain Text */
+/* Center the Prediction Result */
 #result {
     font-size: 18px;
     font-weight: normal;
     font-style: normal;
     text-align: center;
     margin-top: 15px;
+}
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 430px) {
+    body {
+        grid-template-columns: auto;
+        grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto;
+        grid-template-areas:
+            "header"
+            "nav"
+            "ct";
+    }
+
+    header, nav {
+        text-align: center;
+        justify-self: center;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
 }
