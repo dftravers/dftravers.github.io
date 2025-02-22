@@ -1,3 +1,3 @@
-echo "streamlit" > requirements.txt
-echo "pandas" >> requirements.txt
-echo "matplotlib" >> requirements.txt
+streamlit
+pandas
+matplotlib
