@@ -220,3 +220,11 @@ p {
         margin: 0 10px;
     }
 }
+
+.error-message {
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 15px; /* Optional: Adjust spacing */
+}
