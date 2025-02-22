@@ -61,10 +61,9 @@ nav a:hover {
     color: #de650e; /* Orange */
 }
 
-/* Keep the current page's nav link orange */
+/* Keep the current page's nav link orange (but NOT bold) */
 nav a.active {
     color: #de650e; /* Orange */
-    font-weight: bold;
 }
 
 /* Article Styling (Main Content) */
