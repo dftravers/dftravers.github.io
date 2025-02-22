@@ -88,7 +88,7 @@
         <p id="result" class="result-message"></p>
 
         <!-- Table for displaying predictions -->
-        <table id="prediction-table" border="1" style="width:100%; margin-top:20px; text-align:center; display:none;">
+        <table id="prediction-table" style="display:none;">
             <tr>
                 <th>Predicted Goals (Home)</th>
                 <th>Predicted Goals (Away)</th>
@@ -131,7 +131,8 @@
                     return;
                 }
 
-                resultDisplay.innerText = "Calculating...";
+                // Show loading animation
+                resultDisplay.innerHTML = `<span style="color: #ff4500; font-size: 22px;">⚽ Calculating... ⏳</span>`;
                 predictionTable.style.display = "none";
 
                 try {
@@ -153,8 +154,11 @@
                         likelyScoreCell.innerText = data["Most Likely Score"] || "N/A";
                         bestPredictionCell.innerText = data["Best SuperBru Prediction"] || "N/A";
 
-                        predictionTable.style.display = "table";
-                        resultDisplay.innerText = ""; // Hide old text output
+                        // Smooth transition from "Calculating..." to the results
+                        setTimeout(() => {
+                            predictionTable.style.display = "table";
+                            resultDisplay.innerText = ""; // Hide loading message
+                        }, 500);
                     } else {
                         resultDisplay.innerText = "Error: Unexpected response format.";
                     }

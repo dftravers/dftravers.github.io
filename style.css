@@ -101,96 +101,64 @@ p {
     margin-bottom: 10px;
 }
 
-/* Football Score Section Styling */
-.football-score-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* Team selection dropdowns */
-.team-selection {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 400px;
-    justify-content: space-between;
-}
-
-/* Dropdown appearance */
-.team-selection select {
-    width: 250px;
-    font-size: 16px;
-    padding: 8px;
-}
-
-/* Button container */
-.predict-container {
-    display: flex;
-    justify-content: center;
+/* Center the prediction result message */
+.result-message {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
     margin-top: 15px;
+    color: #007bff; /* Blue color */
 }
 
-/* Predict Button */
-#predict-button {
-    font-size: 18px;
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#predict-button:hover {
-    background-color: #0056b3;
-}
-
-/* Prediction Result Table */
+/* Center and style the prediction table */
 .result-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-/* Styled Table */
-.styled-table {
-    width: 100%;
-    max-width: 400px;
+/* Center the table */
+#prediction-table {
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
     border-collapse: collapse;
     font-size: 18px;
-    margin-top: 10px;
-    border: 2px solid black; /* Keeps clean table border */
+    border: 2px solid black;
+    text-align: center;
 }
 
-/* Table Rows */
-.styled-table tr {
-    border-bottom: 1px solid #ddd;
-}
-
-/* Table Cells */
-.styled-table td {
+/* Make table headers bold and background slightly different */
+#prediction-table th {
     padding: 12px;
-    border: 1px solid black; /* Keeps consistent table lines */
+    background-color: #f4f4f4;
+    font-weight: bold;
+    border: 1px solid black;
 }
 
-/* Alternating Row Colors */
-.styled-table tr:nth-child(odd) {
+/* Table cells styling */
+#prediction-table td {
+    padding: 12px;
+    border: 1px solid black;
+}
+
+/* Alternate row colors */
+#prediction-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Bold labels */
-.styled-table strong {
-    font-weight: bold;
+/* Add spacing and styling to improve readability */
+#prediction-table tr:hover {
+    background-color: #e0e0e0;
 }
 
-/* Ensure "Calculating..." text is centered */
-.centered-text {
+/* Loading text centered */
+#result {
     text-align: center;
+    font-size: 20px;
     font-weight: bold;
+    margin-top: 15px;
+    color: #ff4500; /* Orange color */
 }
 
 /* Responsive Design for Small Screens */
