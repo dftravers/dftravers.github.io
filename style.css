@@ -149,44 +149,36 @@ p {
     background-color: #0056b3;
 }
 
-/* Prediction Table Container */
+/* Prediction Result Table */
 .result-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-/* Prediction Results Table */
+/* Table for Predictions */
 .styled-table {
     width: 100%;
     max-width: 400px;
     border-collapse: collapse;
-    text-align: left;
     font-size: 18px;
     margin-top: 10px;
 }
 
-/* Table Header & Data Cells */
-.styled-table th, 
+/* Table Cells */
 .styled-table td {
     padding: 10px;
     border: 1px solid #000;
 }
 
-/* Table Header Styling */
-.styled-table th {
-    background-color: #f4f4f4;
-    text-align: left;
-    font-weight: bold;
+/* Add spacing between table rows */
+.styled-table tr:not(:last-child) td {
+    border-bottom: 2px solid #f4f4f4;
 }
 
-/* Center the Prediction Result */
-.result-message {
-    font-size: 18px;
-    font-weight: normal;
-    font-style: normal;
-    text-align: center;
-    margin-top: 15px;
+/* Bold labels */
+.styled-table strong {
+    font-weight: bold;
 }
 
 /* Responsive Design for Small Screens */
