@@ -149,7 +149,7 @@ p {
     background-color: #0056b3;
 }
 
-/* Prediction Result Table (Aesthetically Pleasing) */
+/* Prediction Result Table */
 .result-container {
     display: flex;
     justify-content: center;
@@ -184,6 +184,12 @@ p {
 
 /* Bold labels */
 .styled-table strong {
+    font-weight: bold;
+}
+
+/* Ensure "Calculating..." text is centered */
+.centered-text {
+    text-align: center;
     font-weight: bold;
 }
 

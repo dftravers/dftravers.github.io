@@ -90,7 +90,7 @@
           </div>
       </div>
 
-      <!-- Prediction Result List -->
+      <!-- Prediction Result Table -->
       <div id="result-container" class="result-container">
           <table id="result-table" class="styled-table" style="display: none;">
               <tbody id="result-body">
@@ -123,7 +123,7 @@
                     return;
                 }
 
-                resultBody.innerHTML = `<tr><td>Calculating...</td></tr>`; 
+                resultBody.innerHTML = `<tr><td colspan="2" class="centered-text">Calculating...</td></tr>`; 
                 resultTable.style.display = "table";
 
                 try {
@@ -144,18 +144,18 @@
 
                     if (data["Predicted Goals (Home)"] !== undefined) {
                         resultBody.innerHTML = `
-                            <tr><td><strong>Home Predicted Goals:</strong> ${data["Predicted Goals (Home)"]}</td></tr>
-                            <tr><td><strong>Away Predicted Goals:</strong> ${data["Predicted Goals (Away)"]}</td></tr>
-                            <tr><td><strong>Most Likely Score:</strong> ${data["Most Likely Score"]}</td></tr>
-                            <tr><td><strong>Best SuperBru Prediction:</strong> ${data["Best SuperBru Prediction"]}</td></tr>
+                            <tr><td><strong>Home Predicted Goals</strong></td><td>${data["Predicted Goals (Home)"]}</td></tr>
+                            <tr><td><strong>Away Predicted Goals</strong></td><td>${data["Predicted Goals (Away)"]}</td></tr>
+                            <tr><td><strong>Most Likely Score</strong></td><td>${data["Most Likely Score"]}</td></tr>
+                            <tr><td><strong>Best SuperBru Prediction</strong></td><td>${data["Best SuperBru Prediction"]}</td></tr>
                         `;
                     } else {
-                        resultBody.innerHTML = `<tr><td>Error: Unexpected response format.</td></tr>`;
+                        resultBody.innerHTML = `<tr><td colspan="2">Error: Unexpected response format.</td></tr>`;
                     }
 
                 } catch (error) {
                     console.error("Error fetching prediction:", error);
-                    resultBody.innerHTML = `<tr><td>Error fetching prediction.</td></tr>`;
+                    resultBody.innerHTML = `<tr><td colspan="2">Error fetching prediction.</td></tr>`;
                 }
             });
         });
