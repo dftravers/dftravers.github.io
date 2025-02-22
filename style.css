@@ -141,6 +141,7 @@ p {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    margin-bottom: 20px; /* Add spacing below the button */
 }
 
 /* Predict Button */
