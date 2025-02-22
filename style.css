@@ -191,11 +191,6 @@ p {
     background-color: white; /* White */
 }
 
-/* Hover effect */
-#prediction-table tr:hover {
-    background-color: #e0e0e0;
-}
-
 
 /* Responsive Design for Small Screens */
 @media screen and (max-width: 430px) {
