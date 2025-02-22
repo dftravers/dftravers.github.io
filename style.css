@@ -149,31 +149,37 @@ p {
     background-color: #0056b3;
 }
 
-/* Prediction Result Table */
+/* Prediction Result Table (Aesthetically Pleasing) */
 .result-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-/* Table for Predictions */
+/* Styled Table */
 .styled-table {
     width: 100%;
     max-width: 400px;
     border-collapse: collapse;
     font-size: 18px;
     margin-top: 10px;
+    border: 2px solid black; /* Keeps clean table border */
+}
+
+/* Table Rows */
+.styled-table tr {
+    border-bottom: 1px solid #ddd;
 }
 
 /* Table Cells */
 .styled-table td {
-    padding: 10px;
-    border: 1px solid #000;
+    padding: 12px;
+    border: 1px solid black; /* Keeps consistent table lines */
 }
 
-/* Add spacing between table rows */
-.styled-table tr:not(:last-child) td {
-    border-bottom: 2px solid #f4f4f4;
+/* Alternating Row Colors */
+.styled-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
 }
 
 /* Bold labels */
