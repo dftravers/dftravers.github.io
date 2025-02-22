@@ -28,6 +28,17 @@ header {
     color: #000;
 }
 
+/* Make "Dan Travers" link black by default and orange on hover */
+.home-link {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.home-link:hover {
+    color: #de650e; /* Orange */
+}
+
 /* Navigation Styling (Top Row) */
 nav {
     grid-area: nav;
@@ -38,18 +49,24 @@ nav {
     text-align: right;
 }
 
-/* Change nav link hover behavior */
+/* Default nav links are black */
 nav a {
     margin-left: 20px;
-    color: #de650e;
+    color: black;
     text-decoration: none;
     padding-bottom: 3px;
-    transition: color 0.3s ease; /* Smooth color transition */
+    transition: color 0.3s ease;
 }
 
+/* Change nav link to orange on hover */
 nav a:hover {
-    color: black; /* Change to black instead of underlining */
-    text-decoration: none; /* Remove underline */
+    color: #de650e; /* Orange */
+}
+
+/* Keep the current page's nav link orange */
+nav a.active {
+    color: #de650e; /* Orange */
+    font-weight: bold;
 }
 
 /* Article Styling (Main Content) */
@@ -163,15 +180,4 @@ p {
     nav a {
         margin: 0 10px;
     }
-}
-
-/* Make the "Dan Travers" header a link without changing its appearance */
-.home-link {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease; /* Smooth color transition */
-}
-
-.home-link:hover {
-    color: #de650e; /* Change to the same orange used in nav links */
 }
