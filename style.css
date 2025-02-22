@@ -16,7 +16,7 @@ body {
         "ct ct";
 }
 
-/* Header Styling (Top Row) */
+/* Header Styling */
 header {
     grid-area: header;
     font-size: 20px;
@@ -28,7 +28,7 @@ header {
     color: #000;
 }
 
-/* Make "Dan Travers" link black by default and orange on hover */
+/* "Dan Travers" link styling */
 .home-link {
     text-decoration: none;
     color: black;
@@ -38,7 +38,7 @@ header {
     color: #de650e; /* Orange */
 }
 
-/* Navigation Styling (Top Row) */
+/* Navigation Styling */
 nav {
     grid-area: nav;
     font-size: 18px;
@@ -48,7 +48,7 @@ nav {
     text-align: right;
 }
 
-/* Default nav links are black */
+/* Navigation links */
 nav a {
     margin-left: 20px;
     color: black;
@@ -56,17 +56,17 @@ nav a {
     padding-bottom: 3px;
 }
 
-/* Change nav link to orange instantly on hover */
+/* Hover effect for navigation links */
 nav a:hover {
     color: #de650e; /* Orange */
 }
 
-/* Keep the current page's nav link orange (but NOT bold) */
+/* Current active page styling */
 nav a.active {
     color: #de650e; /* Orange */
 }
 
-/* Article Styling (Main Content) */
+/* Main Content Area */
 article {
     grid-area: ct;
     font-size: 16px;
@@ -77,7 +77,7 @@ article {
     padding-top: 15px;
 }
 
-/* Heading Styling */
+/* Headings */
 h1 {
     font-size: 25px;
     font-weight: normal;
@@ -94,7 +94,7 @@ h2 {
     text-align: left;
 }
 
-/* Standardize Paragraph Text */
+/* Paragraph Styling */
 p {
     font-size: 18px;
     line-height: 1.5;
@@ -110,7 +110,7 @@ p {
     margin-top: 20px;
 }
 
-/* Improve label and dropdown alignment */
+/* Team selection dropdowns */
 .team-selection {
     display: flex;
     align-items: center;
@@ -120,21 +120,21 @@ p {
     justify-content: space-between;
 }
 
-/* Improve select dropdown appearance */
+/* Dropdown appearance */
 .team-selection select {
     width: 250px;
     font-size: 16px;
     padding: 8px;
 }
 
-/* Center Predict Button */
+/* Button container */
 .predict-container {
     display: flex;
     justify-content: center;
     margin-top: 15px;
 }
 
-/* Improve button styling */
+/* Predict Button */
 #predict-button {
     font-size: 18px;
     padding: 12px 20px;
@@ -149,8 +149,39 @@ p {
     background-color: #0056b3;
 }
 
+/* Prediction Table Container */
+.result-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Prediction Results Table */
+.styled-table {
+    width: 100%;
+    max-width: 400px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Table Header & Data Cells */
+.styled-table th, 
+.styled-table td {
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+/* Table Header Styling */
+.styled-table th {
+    background-color: #f4f4f4;
+    text-align: left;
+    font-weight: bold;
+}
+
 /* Center the Prediction Result */
-#result {
+.result-message {
     font-size: 18px;
     font-weight: normal;
     font-style: normal;

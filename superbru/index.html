@@ -15,16 +15,15 @@
     <!-- Header -->
     <header>
         <h1><a href="/" class="home-link">Dan Travers</a></h1>
-      </header>
+    </header>
 
     <!-- Navigation -->
     <nav>
         <a href="/writing/">Writing</a>
         <a href="/superbru/" class="active">SuperBru</a>
         <a href="/fpl/">FPL</a>
-      </nav>
-      
-
+    </nav>
+    
     <!-- Main Content -->
     <article>
       <h2>SuperBru</h2>
@@ -91,8 +90,21 @@
           </div>
       </div>
 
-      <!-- Prediction Result Display -->
-      <p id="result" class="result-message"></p>
+      <!-- Prediction Result Table -->
+      <div id="result-container" class="result-container">
+          <table id="result-table" class="styled-table" style="display: none;">
+              <thead>
+                  <tr>
+                      <th>Metric</th>
+                      <th>Value</th>
+                  </tr>
+              </thead>
+              <tbody id="result-body">
+                  <!-- Results will be dynamically inserted here -->
+              </tbody>
+          </table>
+      </div>
+
     </article>
 
     <script>
@@ -100,24 +112,26 @@
             const predictButton = document.getElementById("predict-button");
             const team1Select = document.getElementById("team1");
             const team2Select = document.getElementById("team2");
-            const resultDisplay = document.getElementById("result");
-    
+            const resultTable = document.getElementById("result-table");
+            const resultBody = document.getElementById("result-body");
+
             predictButton.addEventListener("click", async function () {
                 const team1 = team1Select.value;
                 const team2 = team2Select.value;
-    
+
                 if (!team1 || !team2) {
-                    resultDisplay.innerText = "Please select both teams.";
+                    alert("Please select both teams.");
                     return;
                 }
-    
+
                 if (team1 === team2) {
-                    resultDisplay.innerText = "Teams must be different.";
+                    alert("Teams must be different.");
                     return;
                 }
-    
-                resultDisplay.innerText = "Calculating..."; // Show loading state
-    
+
+                resultBody.innerHTML = `<tr><td colspan="2">Calculating...</td></tr>`; 
+                resultTable.style.display = "table";
+
                 try {
                     const response = await fetch("https://backend-agu8.onrender.com/predict", {
                         method: "POST",
@@ -127,37 +141,31 @@
                         },
                         body: JSON.stringify({ team1, team2 }),
                     });
-    
+
                     if (!response.ok) {
                         throw new Error(`Server error! Status: ${response.status}`);
                     }
-    
+
                     const data = await response.json();
-    
-                    // ✅ Ensure "Best Guess Score" is displayed correctly
+
                     if (data["Predicted Goals (Home)"] !== undefined) {
-                        resultDisplay.innerHTML = `
-                            <strong>Home Predicted Goals:</strong> ${data["Predicted Goals (Home)"]} <br>
-                            <strong>Away Predicted Goals:</strong> ${data["Predicted Goals (Away)"]} <br>
-                            <strong>Most Likely Score:</strong> ${data["Most Likely Score"]} <br>
-                            <strong>Best SuperBru Prediction:</strong> ${data["Best SuperBru Prediction"]}
+                        resultBody.innerHTML = `
+                            <tr><td><strong>Home Predicted Goals</strong></td><td>${data["Predicted Goals (Home)"]}</td></tr>
+                            <tr><td><strong>Away Predicted Goals</strong></td><td>${data["Predicted Goals (Away)"]}</td></tr>
+                            <tr><td><strong>Most Likely Score</strong></td><td>${data["Most Likely Score"]}</td></tr>
+                            <tr><td><strong>Best SuperBru Prediction</strong></td><td>${data["Best SuperBru Prediction"]}</td></tr>
                         `;
                     } else {
-                        resultDisplay.innerText = "Error: Unexpected response format.";
-                        console.error("Unexpected API response:", data);
+                        resultBody.innerHTML = `<tr><td colspan="2">Error: Unexpected response format.</td></tr>`;
                     }
-    
+
                 } catch (error) {
                     console.error("Error fetching prediction:", error);
-                    resultDisplay.innerText = "Error fetching prediction.";
+                    resultBody.innerHTML = `<tr><td colspan="2">Error fetching prediction.</td></tr>`;
                 }
             });
         });
     </script>
-    
-    
-      
-      
 
   </body>
 </html>
