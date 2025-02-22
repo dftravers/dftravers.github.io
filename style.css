@@ -165,40 +165,37 @@ p {
     margin-top: 20px;
 }
 
-/* Style the Prediction Table */
+/* SuperBru Prediction Table Styling */
 #prediction-table {
     width: 100%;
-    max-width: 400px; /* Keeps table compact */
+    max-width: 400px;
     margin: auto;
     border-collapse: collapse;
     font-size: 18px;
-    border: 2px solid black;
+    border: 2px solid black; /* Solid border around the table */
 }
 
-/* Table rows */
-#prediction-table tr {
-    border-bottom: 1px solid black;
+/* Table cells */
+#prediction-table td {
+    padding: 10px; /* Consistent padding */
+    text-align: center; /* Center everything */
+    border: 1px solid black; /* Borders between cells */
 }
 
-/* Left-align the labels */
-#prediction-table td:first-child {
-    text-align: left;
-    font-weight: normal; /* Removes boldness */
-    padding: 10px;
+/* Alternating row colors */
+#prediction-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray */
 }
 
-/* Center-align the numbers */
-#prediction-table td:last-child {
-    text-align: center;
-    font-weight: bold;
-    padding: 10px;
+#prediction-table tr:nth-child(odd) {
+    background-color: white; /* White */
 }
-
 
 /* Hover effect */
 #prediction-table tr:hover {
     background-color: #e0e0e0;
 }
+
 
 /* Responsive Design for Small Screens */
 @media screen and (max-width: 430px) {
