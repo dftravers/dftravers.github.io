@@ -87,6 +87,22 @@
 
         <p id="result" class="result-message"></p>
 
+        <!-- Table for displaying results -->
+        <table id="prediction-table" border="1" style="width:100%; margin-top:20px; text-align:center; display:none;">
+            <tr>
+                <th>Predicted Goals (Home)</th>
+                <th>Predicted Goals (Away)</th>
+                <th>Most Likely Score</th>
+                <th>Best SuperBru Prediction</th>
+            </tr>
+            <tr>
+                <td id="home-goals"></td>
+                <td id="away-goals"></td>
+                <td id="likely-score"></td>
+                <td id="best-prediction"></td>
+            </tr>
+        </table>
+
     </article>
 
     <script>
@@ -95,6 +111,11 @@
             const team1Select = document.getElementById("team1");
             const team2Select = document.getElementById("team2");
             const resultDisplay = document.getElementById("result");
+            const predictionTable = document.getElementById("prediction-table");
+            const homeGoalsCell = document.getElementById("home-goals");
+            const awayGoalsCell = document.getElementById("away-goals");
+            const likelyScoreCell = document.getElementById("likely-score");
+            const bestPredictionCell = document.getElementById("best-prediction");
 
             predictButton.addEventListener("click", async function () {
                 const team1 = team1Select.value;
@@ -111,6 +132,7 @@
                 }
 
                 resultDisplay.innerText = "Calculating...";
+                predictionTable.style.display = "none";
 
                 try {
                     const response = await fetch("https://backend-agu8.onrender.com/predict", {
@@ -125,12 +147,13 @@
 
                     const data = await response.json();
 
-                    resultDisplay.innerHTML = `
-                        <strong>Home Predicted Goals:</strong> ${data["Predicted Goals (Home)"]} <br>
-                        <strong>Away Predicted Goals:</strong> ${data["Predicted Goals (Away)"]} <br>
-                        <strong>Most Likely Score:</strong> ${data["Most Likely Score"]} <br>
-                        <strong>Best SuperBru Prediction:</strong> ${data["Best SuperBru Prediction"]}
-                    `;
+                    homeGoalsCell.innerText = data["Predicted Goals (Home)"];
+                    awayGoalsCell.innerText = data["Predicted Goals (Away)"];
+                    likelyScoreCell.innerText = data["Most Likely Score"];
+                    bestPredictionCell.innerText = data["Best SuperBru Prediction"];
+
+                    predictionTable.style.display = "table";
+                    resultDisplay.innerText = ""; // Hide old text output
 
                 } catch (error) {
                     console.error("Error fetching prediction:", error);
@@ -142,4 +165,3 @@
 
 </body>
 </html>
-
