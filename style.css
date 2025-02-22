@@ -32,7 +32,6 @@ header {
 .home-link {
     text-decoration: none;
     color: black;
-    transition: color 0.3s ease;
 }
 
 .home-link:hover {
@@ -55,10 +54,9 @@ nav a {
     color: black;
     text-decoration: none;
     padding-bottom: 3px;
-    transition: color 0.3s ease;
 }
 
-/* Change nav link to orange on hover */
+/* Change nav link to orange instantly on hover */
 nav a:hover {
     color: #de650e; /* Orange */
 }
