@@ -87,8 +87,6 @@
             </div>
         </div>
 
-        <p id="result" class="result-message"></p>
-
         <table id="prediction-table" style="display:none;">
             <tr>
                 <td><strong>Predicted Goals (Home)</strong></td>
@@ -112,60 +110,46 @@
 
     <script>
         // Configuration
-        const API_URL = 'https://backend-agu8.onrender.com'; // Updated to use your hosted backend
-
-        // Helper function to show error messages
-        function showError(message) {
-            const resultMessage = document.getElementById('result');
-            resultMessage.textContent = message;
-            resultMessage.className = 'error-message'; // Apply correct styling
-        }
+        const API_URL = 'https://backend-agu8.onrender.com'; // Ensure this is your actual backend URL
 
         // Helper function to reset the display
         function resetDisplay() {
-            const resultMessage = document.getElementById('result');
-            const predictionTable = document.getElementById('prediction-table');
-            resultMessage.textContent = '';
-            resultMessage.className = 'result-message'; // Reset to normal styling
-            predictionTable.style.display = 'none';
+            document.getElementById('prediction-table').style.display = 'none';
         }
-
 
         // Initialize the calculate button functionality
         document.getElementById('predict-button').addEventListener('click', async function() {
             const team1 = document.getElementById('team1').value;
             const team2 = document.getElementById('team2').value;
-            const resultMessage = document.getElementById('result');
-            const predictionTable = document.getElementById('prediction-table');
+            const predictButton = document.getElementById('predict-button');
 
             // Reset display
             resetDisplay();
 
             // Validate selections
             if (!team1 || !team2) {
-                showError('Please select both teams');
+                alert('Please select both teams');
                 return;
             }
 
             if (team1 === team2) {
-                showError('Please select different teams');
+                alert('Please select different teams');
                 return;
             }
 
-            // Show loading state
-            resultMessage.textContent = 'Calculating...';
+            // Change button text to "Calculating..." and disable it
+            predictButton.textContent = 'Calculating...';
+            predictButton.disabled = true;
 
             try {
                 const response = await fetch(`${API_URL}/predict`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ team1, team2 })
                 });
 
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
                 const data = await response.json();
@@ -176,14 +160,17 @@
                 document.getElementById('likely-score').textContent = data['Most Likely Score'];
                 document.getElementById('best-prediction').textContent = data['Best SuperBru Prediction'];
 
-                // Show the table and clear the loading message
-                predictionTable.style.display = 'table';
-                resultMessage.textContent = '';
+                // Show the table
+                document.getElementById('prediction-table').style.display = 'table';
 
             } catch (error) {
                 console.error('Error:', error);
-                showError('Error calculating prediction. Please try again.');
+                alert('Error calculating prediction. Please try again.');
             }
+
+            // Reset button text and re-enable it
+            predictButton.textContent = 'Calculate';
+            predictButton.disabled = false;
         });
 
         // Add event listeners for team selection to clear error messages
