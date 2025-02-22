@@ -38,15 +38,18 @@ nav {
     text-align: right;
 }
 
+/* Change nav link hover behavior */
 nav a {
     margin-left: 20px;
     color: #de650e;
     text-decoration: none;
     padding-bottom: 3px;
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: black; /* Change to black instead of underlining */
+    text-decoration: none; /* Remove underline */
 }
 
 /* Article Styling (Main Content) */
@@ -166,8 +169,9 @@ p {
 .home-link {
     text-decoration: none;
     color: inherit;
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .home-link:hover {
-    text-decoration: underline;
+    color: #de650e; /* Change to the same orange used in nav links */
 }
