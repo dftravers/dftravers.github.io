@@ -221,3 +221,9 @@ p {
     font-weight: normal;
     margin-top: 15px; /* Optional: Adjust spacing */
 }
+
+/* Ensure team selection labels match the main paragraph text */
+.team-selection label {
+    font-size: 18px; /* Matches paragraph font size */
+    font-weight: normal; /* Ensures consistency */
+}
