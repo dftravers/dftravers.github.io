@@ -87,7 +87,7 @@
 
         <p id="result" class="result-message"></p>
 
-        <!-- Table for displaying results -->
+        <!-- Table for displaying predictions -->
         <table id="prediction-table" border="1" style="width:100%; margin-top:20px; text-align:center; display:none;">
             <tr>
                 <th>Predicted Goals (Home)</th>
@@ -147,13 +147,17 @@
 
                     const data = await response.json();
 
-                    homeGoalsCell.innerText = data["Predicted Goals (Home)"];
-                    awayGoalsCell.innerText = data["Predicted Goals (Away)"];
-                    likelyScoreCell.innerText = data["Most Likely Score"];
-                    bestPredictionCell.innerText = data["Best SuperBru Prediction"];
+                    if (data["Predicted Goals (Home)"] !== undefined) {
+                        homeGoalsCell.innerText = data["Predicted Goals (Home)"];
+                        awayGoalsCell.innerText = data["Predicted Goals (Away)"];
+                        likelyScoreCell.innerText = data["Most Likely Score"] || "N/A";
+                        bestPredictionCell.innerText = data["Best SuperBru Prediction"] || "N/A";
 
-                    predictionTable.style.display = "table";
-                    resultDisplay.innerText = ""; // Hide old text output
+                        predictionTable.style.display = "table";
+                        resultDisplay.innerText = ""; // Hide old text output
+                    } else {
+                        resultDisplay.innerText = "Error: Unexpected response format.";
+                    }
 
                 } catch (error) {
                     console.error("Error fetching prediction:", error);
