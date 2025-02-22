@@ -220,9 +220,3 @@ p {
     font-weight: normal;
     margin-top: 15px; /* Optional: Adjust spacing */
 }
-
-/* Disabled Predict Button Styling */
-#predict-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
