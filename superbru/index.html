@@ -10,7 +10,6 @@
     <link rel="icon" type="image/png" href="/dicon.png">
 </head>
 <body>
-
     <header>
         <h1><a href="/" class="home-link">Dan Travers</a></h1>
     </header>
@@ -104,8 +103,86 @@
                 <td id="best-prediction"></td>
             </tr>
         </table>
-
     </article>
 
+    <script>
+        // Configuration
+        const API_URL = 'https://backend-agu8.onrender.com'; // Updated to use your hosted backend
+
+        // Helper function to show error messages
+        function showError(message) {
+            const resultMessage = document.getElementById('result');
+            resultMessage.textContent = message;
+            resultMessage.style.color = '#dc3545'; // Red color for errors
+        }
+
+        // Helper function to reset the display
+        function resetDisplay() {
+            const resultMessage = document.getElementById('result');
+            const predictionTable = document.getElementById('prediction-table');
+            resultMessage.textContent = '';
+            resultMessage.style.color = '#007bff'; // Reset to default blue color
+            predictionTable.style.display = 'none';
+        }
+
+        // Initialize the calculate button functionality
+        document.getElementById('predict-button').addEventListener('click', async function() {
+            const team1 = document.getElementById('team1').value;
+            const team2 = document.getElementById('team2').value;
+            const resultMessage = document.getElementById('result');
+            const predictionTable = document.getElementById('prediction-table');
+
+            // Reset display
+            resetDisplay();
+
+            // Validate selections
+            if (!team1 || !team2) {
+                showError('Please select both teams');
+                return;
+            }
+
+            if (team1 === team2) {
+                showError('Please select different teams');
+                return;
+            }
+
+            // Show loading state
+            resultMessage.textContent = 'Calculating...';
+
+            try {
+                const response = await fetch(`${API_URL}/predict`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ team1, team2 })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Update table cells
+                document.getElementById('home-goals').textContent = data['Predicted Goals (Home)'];
+                document.getElementById('away-goals').textContent = data['Predicted Goals (Away)'];
+                document.getElementById('likely-score').textContent = data['Most Likely Score'];
+                document.getElementById('best-prediction').textContent = data['Best SuperBru Prediction'];
+
+                // Show the table and clear the loading message
+                predictionTable.style.display = 'table';
+                resultMessage.textContent = '';
+
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Error calculating prediction. Please try again.');
+            }
+        });
+
+        // Add event listeners for team selection to clear error messages
+        document.getElementById('team1').addEventListener('change', resetDisplay);
+        document.getElementById('team2').addEventListener('change', resetDisplay);
+    </script>
 </body>
 </html>
