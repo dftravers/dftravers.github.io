@@ -161,3 +161,13 @@ p {
         margin: 0 10px;
     }
 }
+
+/* Make the "Dan Travers" header a link without changing its appearance */
+.home-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+}
