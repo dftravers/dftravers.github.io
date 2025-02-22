@@ -118,6 +118,7 @@
         function showError(message) {
             const resultMessage = document.getElementById('result');
             resultMessage.textContent = message;
+            resultMessage.className = 'error-message'; // Apply correct styling
         }
 
         // Helper function to reset the display
@@ -125,8 +126,10 @@
             const resultMessage = document.getElementById('result');
             const predictionTable = document.getElementById('prediction-table');
             resultMessage.textContent = '';
+            resultMessage.className = 'result-message'; // Reset to normal styling
             predictionTable.style.display = 'none';
         }
+
 
         // Initialize the calculate button functionality
         document.getElementById('predict-button').addEventListener('click', async function() {
