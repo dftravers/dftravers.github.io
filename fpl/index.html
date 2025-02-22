@@ -3,10 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0;url=https://dtraversfpl.streamlit.app">
     <title>Redirecting...</title>
+    <script>
+        // Redirect instantly using JavaScript
+        setTimeout(function() {
+            window.location.href = "https://dtraversfpl.streamlit.app";
+        }, 50); // Delay of 50ms for smooth transition
+
+        // Show fallback message after 3 seconds (only if JS fails)
+        setTimeout(function() {
+            document.getElementById("redirect-message").style.display = "block";
+        }, 3000);
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        #redirect-message {
+            display: none; /* Initially hidden */
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="https://dtraversfpl.streamlit.app">click here</a>.</p>
+    <div id="redirect-message">
+        <p>Redirecting you to the Fantasy Premier League Dashboard...</p>
+        <p>If you are not redirected, <a href="https://dtraversfpl.streamlit.app">click here</a>.</p>
+    </div>
 </body>
 </html>
