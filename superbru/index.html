@@ -15,19 +15,23 @@
     <!-- Header -->
     <header>
         <h1><a href="/" class="home-link">Dan Travers</a></h1>
-    </header>
+      </header>
 
     <!-- Navigation -->
     <nav>
         <a href="/writing/">Writing</a>
         <a href="/superbru/" class="active">SuperBru</a>
         <a href="/fpl/">FPL</a>
-    </nav>
-    
+      </nav>
+      
+
     <!-- Main Content -->
     <article>
       <h2>SuperBru</h2>
       <p>Calculate the scoreline with the highest expected SuperBru points.</p>
+
+      <!-- Display last updated date -->
+      <p id="last-updated" class="update-message">Fetching latest data...</p>
 
       <!-- Team Selection UI -->
       <div class="football-score-container">
@@ -90,15 +94,8 @@
           </div>
       </div>
 
-      <!-- Prediction Result Table -->
-      <div id="result-container" class="result-container">
-          <table id="result-table" class="styled-table" style="display: none;">
-              <tbody id="result-body">
-                  <!-- Results will be dynamically inserted here -->
-              </tbody>
-          </table>
-      </div>
-
+      <!-- Prediction Result Display -->
+      <p id="result" class="result-message"></p>
     </article>
 
     <script>
@@ -106,25 +103,24 @@
             const predictButton = document.getElementById("predict-button");
             const team1Select = document.getElementById("team1");
             const team2Select = document.getElementById("team2");
-            const resultTable = document.getElementById("result-table");
-            const resultBody = document.getElementById("result-body");
+            const resultDisplay = document.getElementById("result");
+            const lastUpdatedDisplay = document.getElementById("last-updated");
 
             predictButton.addEventListener("click", async function () {
                 const team1 = team1Select.value;
                 const team2 = team2Select.value;
 
                 if (!team1 || !team2) {
-                    alert("Please select both teams.");
+                    resultDisplay.innerText = "Please select both teams.";
                     return;
                 }
 
                 if (team1 === team2) {
-                    alert("Teams must be different.");
+                    resultDisplay.innerText = "Teams must be different.";
                     return;
                 }
 
-                resultBody.innerHTML = `<tr><td colspan="2" class="centered-text">Calculating...</td></tr>`; 
-                resultTable.style.display = "table";
+                resultDisplay.innerText = "Calculating...";
 
                 try {
                     const response = await fetch("https://backend-agu8.onrender.com/predict", {
@@ -143,19 +139,27 @@
                     const data = await response.json();
 
                     if (data["Predicted Goals (Home)"] !== undefined) {
-                        resultBody.innerHTML = `
-                            <tr><td><strong>Home Predicted Goals</strong></td><td>${data["Predicted Goals (Home)"]}</td></tr>
-                            <tr><td><strong>Away Predicted Goals</strong></td><td>${data["Predicted Goals (Away)"]}</td></tr>
-                            <tr><td><strong>Most Likely Score</strong></td><td>${data["Most Likely Score"]}</td></tr>
-                            <tr><td><strong>Best SuperBru Prediction</strong></td><td>${data["Best SuperBru Prediction"]}</td></tr>
+                        resultDisplay.innerHTML = `
+                            <strong>Home Predicted Goals:</strong> ${data["Predicted Goals (Home)"]} <br>
+                            <strong>Away Predicted Goals:</strong> ${data["Predicted Goals (Away)"]} <br>
+                            <strong>Most Likely Score:</strong> ${data["Most Likely Score"]} <br>
+                            <strong>Best SuperBru Prediction:</strong> ${data["Best SuperBru Prediction"]}
                         `;
+
+                        // Display last updated timestamp
+                        if (data["Last Updated"]) {
+                            lastUpdatedDisplay.innerText = `As of ${data["Last Updated"]}`;
+                        } else {
+                            lastUpdatedDisplay.innerText = "Last updated date unavailable.";
+                        }
                     } else {
-                        resultBody.innerHTML = `<tr><td colspan="2">Error: Unexpected response format.</td></tr>`;
+                        resultDisplay.innerText = "Error: Unexpected response format.";
+                        console.error("Unexpected API response:", data);
                     }
 
                 } catch (error) {
                     console.error("Error fetching prediction:", error);
-                    resultBody.innerHTML = `<tr><td colspan="2">Error fetching prediction.</td></tr>`;
+                    resultDisplay.innerText = "Error fetching prediction.";
                 }
             });
         });
