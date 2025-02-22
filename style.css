@@ -101,14 +101,14 @@ p {
     margin-bottom: 10px;
 }
 
-/* Center the prediction result message */
 .result-message {
     text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 15px;
-    color: #007bff; /* Blue color */
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 15px; /* Optional: Adjust spacing if needed */
 }
+
 
 /* Center and format the dropdowns */
 .football-score-container {
