@@ -165,35 +165,35 @@ p {
     margin-top: 20px;
 }
 
-/* Styled table */
+/* Style the Prediction Table */
 #prediction-table {
-    width: 80%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 400px; /* Keeps table compact */
     margin: auto;
     border-collapse: collapse;
     font-size: 18px;
     border: 2px solid black;
+}
+
+/* Table rows */
+#prediction-table tr {
+    border-bottom: 1px solid black;
+}
+
+/* Left-align the labels */
+#prediction-table td:first-child {
+    text-align: left;
+    font-weight: normal; /* Removes boldness */
+    padding: 10px;
+}
+
+/* Center-align the numbers */
+#prediction-table td:last-child {
     text-align: center;
-}
-
-/* Table headers */
-#prediction-table th {
-    padding: 12px;
-    background-color: #f4f4f4;
     font-weight: bold;
-    border: 1px solid black;
+    padding: 10px;
 }
 
-/* Table cells */
-#prediction-table td {
-    padding: 12px;
-    border: 1px solid black;
-}
-
-/* Alternate row colors */
-#prediction-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
 
 /* Hover effect */
 #prediction-table tr:hover {
