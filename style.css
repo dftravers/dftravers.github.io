@@ -228,22 +228,39 @@ p {
     font-weight: normal; /* Ensures consistency */
 }
 
-/* Center the image below content */
+
+/* Ensure the text appears above the image and everything is centered */
 .superbru-image-container {
-    text-align: center; /* Centers the image */
-    margin-top: 20px; /* Adds space above the image */
+    text-align: center;
+    margin-top: 20px; /* Space above the image */
+    display: flex;
+    flex-direction: column; /* Stack text above image */
+    align-items: center;
+}
+
+/* Style the text above the image */
+.image-description {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Dark gray text */
+    margin-bottom: 10px; /* Space between text and image */
+    text-align: center;
+    max-width: 90%;
 }
 
 /* Style the SuperBru prediction image */
 .prediction-image {
-    max-width: 100%; /* Makes sure it doesn't overflow */
-    width: 600px; /* Sets a fixed width */
+    max-width: 80%; /* Prevents it from being too large */
+    width: 500px; /* Default width */
     height: auto; /* Keeps aspect ratio */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow */
 }
 
+/* Adjust image size for smaller screens */
 @media screen and (max-width: 768px) {
     .prediction-image {
         width: 90%; /* Makes it almost full width */
-        max-width: 500px; /* Ensures it's not too big */
+        max-width: 400px; /* Reduces max width */
     }
 }
