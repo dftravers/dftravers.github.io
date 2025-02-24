@@ -262,16 +262,21 @@ p {
     display: none;
 }
 
-/* Make the toggle title look clickable */
+/* Toggle Title styling */
 .toggle-title {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px; /* Normal text size */
+    font-weight: normal;
+    color: black; /* Make text black */
     cursor: pointer;
-    color: #007bff; /* Blue color */
-    text-decoration: underline;
-    margin-top: 20px;
-    text-align: center;
+    display: flex;
+    align-items: center;  /* Vertically align text and toggle symbol */
 }
+
+.toggle-symbol {
+    margin-right: 8px; /* Space between symbol and text */
+    font-size: 18px; /* Size of the toggle symbol */
+}
+
 
 
 /* Style the explanation text */
