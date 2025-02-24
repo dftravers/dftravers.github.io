@@ -229,14 +229,6 @@ p {
 }
 
 
-/* Ensure the text appears above the image and everything is centered */
-.superbru-image-container {
-    text-align: center;
-    margin-top: 20px; /* Space above the image */
-    display: flex;
-    flex-direction: column; /* Stack text above image */
-    align-items: center;
-}
 
 /* Style the text above the image */
 .image-description {
@@ -281,15 +273,6 @@ p {
     text-align: center;
 }
 
-/* Style the explanation container */
-.toggle-container {
-    text-align: center;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #f8f8f8; /* Light gray background */
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
 
 /* Style the explanation text */
 .explanation-text {
@@ -300,14 +283,7 @@ p {
     text-align: center;
 }
 
-/* Style the SuperBru prediction image */
-.prediction-image {
-    max-width: 80%; /* Prevents it from being too large */
-    width: 500px; /* Default width */
-    height: auto; /* Keeps aspect ratio */
-    border-radius: 8px; /* Optional: Adds rounded corners */
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow */
-}
+
 
 /* Adjust image size for smaller screens */
 @media screen and (max-width: 768px) {
@@ -317,3 +293,16 @@ p {
     }
 }
 
+/* Image & Text Containers - Unified */
+.superbru-image-container,
+.toggle-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
