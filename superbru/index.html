@@ -24,11 +24,19 @@
         <h2>SuperBru</h2>
         <p>Calculate the scoreline with the highest expected SuperBru points.</p>
 
-        <!-- Add description and image container here -->
-        <div class="superbru-image-container">
-            <p class="image-description">This graph visualizes the best SuperBru predictions based on xG.</p>
+        <!-- Toggle Title -->
+        <h3 onclick="toggleExplanation()" class="toggle-title">How does this work? ▼</h3>
+
+        <!-- Hidden Explanation & Image -->
+        <div id="toggle-content" class="toggle-container hidden">
+            <p class="explanation-text">
+                This tool uses Expected Goals (xG) to predict football match outcomes. 
+                Based on statistical models, it suggests the most likely scoreline and 
+                the best SuperBru prediction to maximize points.
+            </p>
             <img src="/superbru/xg_plot.png" alt="XG Prediction Graph" class="prediction-image">
         </div>
+
 
         <div class="football-score-container">
             <!-- Home Team Selection -->
