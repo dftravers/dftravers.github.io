@@ -212,6 +212,13 @@
                 symbol.innerHTML = "▼"; // Change symbol to 'down' when the content is hidden
             }
         }
+
+        // Hide the content on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            var content = document.getElementById("toggle-content");
+            content.style.display = "none"; // Ensure content is hidden on load
+        });
+
     </script>
     
 </body>
