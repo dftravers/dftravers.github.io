@@ -285,14 +285,6 @@ p {
 
 
 
-/* Adjust image size for smaller screens */
-@media screen and (max-width: 768px) {
-    .prediction-image {
-        width: 90%; /* Makes it almost full width */
-        max-width: 400px; /* Reduces max width */
-    }
-}
-
 /* Image & Text Containers - Unified */
 .superbru-image-container,
 .toggle-container {
