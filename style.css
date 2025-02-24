@@ -239,8 +239,6 @@ p {
     max-width: 100%; /* Makes sure it doesn't overflow */
     width: 600px; /* Sets a fixed width */
     height: auto; /* Keeps aspect ratio */
-    border-radius: 10px; /* Optional: Rounds the corners */
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a soft shadow */
 }
 
 @media screen and (max-width: 768px) {
