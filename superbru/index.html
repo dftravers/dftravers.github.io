@@ -25,7 +25,10 @@
         <p>Calculate the scoreline with the highest expected SuperBru points.</p>
 
         <!-- Toggle Title -->
-        <h3 onclick="toggleExplanation()" class="toggle-title">▼ How does this work?</h3>
+        <h3 onclick="toggleExplanation()" class="toggle-title">
+            <span class="toggle-symbol">▼</span> How does this work?
+        </h3>
+        
 
         <!-- Hidden Explanation & Image -->
         <div id="toggle-content" class="toggle-container hidden">
@@ -198,14 +201,15 @@
         function toggleExplanation() {
             var content = document.getElementById("toggle-content");
             var title = document.querySelector(".toggle-title");
-            var symbol = title.querySelector(".toggle-symbol");
+            var symbol = title.querySelector(".toggle-symbol"); // Correctly select the toggle symbol
 
+            // Toggle the content visibility and the symbol
             if (content.style.display === "none" || content.style.display === "") {
                 content.style.display = "block"; // Show content
-                symbol.innerHTML = "▲"; // Change to 'up' symbol
+                symbol.innerHTML = "▲"; // Change symbol to 'up' when the content is visible
             } else {
                 content.style.display = "none"; // Hide content
-                symbol.innerHTML = "▼"; // Change back to 'down' symbol
+                symbol.innerHTML = "▼"; // Change symbol to 'down' when the content is hidden
             }
         }
     </script>
