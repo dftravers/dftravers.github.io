@@ -261,16 +261,17 @@ p {
     display: none;
 }
 
-/* Toggle Title styling */
 .toggle-title {
     font-size: 18px; /* Normal text size */
     font-weight: normal;
-    color: black; /* Make text black */
+    color: black; /* Default text color */
     cursor: pointer;
     display: flex;
     align-items: center;  /* Vertically align text and toggle symbol */
+    transition: color 0.3s; /* Smooth color transition */
 }
 
+/* Toggle symbol size */
 .toggle-symbol {
     margin-right: 8px; /* Space between symbol and text */
     font-size: 18px; /* Size of the toggle symbol */
@@ -308,3 +309,20 @@ p {
     width: 100%;  /* Ensures the image takes up 100% of the container's width */
     height: auto; /* Keeps the aspect ratio intact */
 }
+
+/* Hover effect to show it's clickable */
+.toggle-title:hover {
+    color: #de650e; /* Orange on hover */
+}
+
+/* Apply orange color when content is visible */
+.toggle-title.active {
+    color: #de650e; /* Orange when active (content visible) */
+}
+
+/* Toggle symbol size */
+.toggle-symbol {
+    margin-right: 8px; /* Space between symbol and text */
+    font-size: 18px; /* Size of the toggle symbol */
+}
+

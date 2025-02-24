@@ -37,7 +37,7 @@
                 Based on statistical models, it suggests the most likely scoreline and 
                 the best SuperBru prediction to maximize points.
             </p>
-            <img src="/superbru/xg_plot.png" alt="XG Prediction Graph" class="prediction-image">
+            <img src="/superbru/xg_plot_1.png" alt="XG Prediction Graph" class="prediction-image">
         </div>
 
 
@@ -198,6 +198,7 @@
 
     <script>
         // Function to toggle content visibility
+        // Function to toggle content visibility and active class
         function toggleExplanation() {
             var content = document.getElementById("toggle-content");
             var title = document.querySelector(".toggle-title");
@@ -207,9 +208,11 @@
             if (content.style.display === "none" || content.style.display === "") {
                 content.style.display = "block"; // Show content
                 symbol.innerHTML = "▼"; // Change symbol to 'down' when the content is visible
+                title.classList.add('active'); // Add active class to keep orange color
             } else {
                 content.style.display = "none"; // Hide content
                 symbol.innerHTML = "▶"; // Change symbol to 'right' when the content is hidden
+                title.classList.remove('active'); // Remove active class when content is hidden
             }
         }
 
