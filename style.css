@@ -227,3 +227,25 @@ p {
     font-size: 18px; /* Matches paragraph font size */
     font-weight: normal; /* Ensures consistency */
 }
+
+/* Center the image below content */
+.superbru-image-container {
+    text-align: center; /* Centers the image */
+    margin-top: 20px; /* Adds space above the image */
+}
+
+/* Style the SuperBru prediction image */
+.prediction-image {
+    max-width: 100%; /* Makes sure it doesn't overflow */
+    width: 600px; /* Sets a fixed width */
+    height: auto; /* Keeps aspect ratio */
+    border-radius: 10px; /* Optional: Rounds the corners */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a soft shadow */
+}
+
+@media screen and (max-width: 768px) {
+    .prediction-image {
+        width: 90%; /* Makes it almost full width */
+        max-width: 500px; /* Ensures it's not too big */
+    }
+}
