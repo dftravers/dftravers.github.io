@@ -268,7 +268,7 @@ p {
     cursor: pointer;
     display: flex;
     align-items: center;  /* Vertically align text and toggle symbol */
-    transition: color 0.3s; /* Smooth color transition */
+    transition: color 0s; /* Smooth color transition */
 }
 
 /* Toggle symbol size */
