@@ -192,5 +192,21 @@
         document.getElementById('team1').addEventListener('change', resetDisplay);
         document.getElementById('team2').addEventListener('change', resetDisplay);
     </script>
+
+    <script>
+        function toggleExplanation() {
+            var content = document.getElementById("toggle-content");
+            var title = document.querySelector(".toggle-title");
+        
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block"; // Show content
+                title.innerHTML = "How does this work? ▲"; // Change button text
+            } else {
+                content.style.display = "none"; // Hide content
+                title.innerHTML = "How does this work? ▼"; // Change back
+            }
+        }
+        </script>
+    
 </body>
 </html>
