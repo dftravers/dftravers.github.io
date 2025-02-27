@@ -263,6 +263,10 @@ p {
 
 .toggle-title {
     font-size: 18px; /* Normal text size */
+    background-color: #e1e1e1; /* Slightly lighter gray */
+    padding: 8px 12px; /* Adds some spacing */
+    border-radius: 5px; /* Optional: Rounds the corners */
+    display: inline-block; /* Keeps background only around text */
     font-weight: normal;
     color: black; /* Default text color */
     cursor: pointer;
@@ -270,6 +274,8 @@ p {
     align-items: center;  /* Vertically align text and toggle symbol */
     transition: color 0s; /* Smooth color transition */
 }
+
+
 
 /* Toggle symbol size */
 .toggle-symbol {
