@@ -215,11 +215,11 @@
             // Toggle the content visibility and the symbol
             if (content.style.display === "none" || content.style.display === "") {
                 content.style.display = "block"; // Show content
-                symbol.innerHTML = "▽"; // Change symbol to 'down' when the content is visible
+                symbol.innerHTML = "▼"; // Change symbol to 'down' when the content is visible
                 title.classList.add('active'); // Add active class to keep orange color
             } else {
                 content.style.display = "none"; // Hide content
-                symbol.innerHTML = "▷"; // Change symbol to 'right' when the content is hidden
+                symbol.innerHTML = "▶"; // Change symbol to 'right' when the content is hidden
                 title.classList.remove('active'); // Remove active class when content is hidden
             }
         }
