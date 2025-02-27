@@ -264,7 +264,7 @@ p {
 .toggle-title {
     font-size: 18px; /* Normal text size */
     background-color: #f1f1f1; /* Slightly lighter gray */
-    padding: 10px 10px; /* Adds some spacing */
+    padding-top: 10px;
     border-radius: 5px; /* Optional: Rounds the corners */
     display: inline-block; /* Keeps background only around text */
     font-weight: normal;
