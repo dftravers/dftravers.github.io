@@ -33,15 +33,16 @@
         <!-- Hidden Explanation & Image -->
         <div id="toggle-content" class="toggle-container hidden">
             <p class="explanation-text">
+                In the fantasy sports game SuperBru, you score points
+                depending on how well you predict the score of a game, as governed by
+                <a href="https://www.superbru.com/premierleague_predictor/how_to_play.php#tab=scoring" target="_blank" rel="noopener noreferrer">these rules</a>. <br><br>
+                
                 This tool uses Expected Goals data from
                 <a href="https://understat.com/league/EPL" target="_blank" rel="noopener noreferrer">Understat</a>
-                to estimate the probability of different scorelines in Premier League games. In the fantasy sports game SuperBru, you score points
-                depending on how well you predict the score of a game, as governed by
-                <a href="https://www.superbru.com/premierleague_predictor/how_to_play.php#tab=scoring" target="_blank" rel="noopener noreferrer">these rules</a>.
-                A simple Python script calculates the expected points for each prediction and outputs the best choice. <br><br>
+                to generate a prediction for the Expected Goals of the home and away team. Using these predictions, the probability of different scorelines are estimated. 
+                A simple Python script calculates the expected SuperBru points for each of these scorelines and outputs the best choice. <br><br>
 
-                Once the xG of the home and away team has been estimated, we can see which prediction has the highest expected points. The way that
-                the home and away teams' xG maps on the best score prediction is shown in the plot below. Curiously, no draw other than 0-0 is ever the best
+                The best prediction for each combination of home and away xG is shown in the plot below. Curiously, no draw other than 0-0 is ever the best
                 Superbru prediction. This stems from the fact that draws have fewer scorelines that are considered 'close' by the SuperBru scoring system than wins have.
             </p>
             <img src="/superbru/xg_plot_1.png" alt="XG Prediction Graph" class="prediction-image">
