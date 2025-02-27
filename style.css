@@ -270,7 +270,6 @@ p {
     font-weight: normal;
     color: black; /* Default text color */
     cursor: pointer;
-    display: flex;
     align-items: center;  /* Vertically align text and toggle symbol */
     transition: color 0s; /* Smooth color transition */
 }
