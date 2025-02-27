@@ -300,7 +300,6 @@ p {
 .superbru-image-container,
 .toggle-container {
     text-align: center;
-    padding-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -323,11 +322,5 @@ p {
 /* Apply orange color when content is visible */
 .toggle-title.active {
     color: #de650e; /* Orange when active (content visible) */
-}
-
-/* Toggle symbol size */
-.toggle-symbol {
-    margin-right: 8px; /* Space between symbol and text */
-    font-size: 18px; /* Size of the toggle symbol */
 }
 
