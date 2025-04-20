@@ -38,6 +38,10 @@ header {
     color: #de650e; /* Orange */
 }
 
+.home-link.active {
+    color: #de650e; /* Orange */
+}
+
 /* Navigation Styling */
 nav {
     grid-area: nav;
