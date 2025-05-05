@@ -10,8 +10,20 @@ from components.visualizations import (
 )
 
 # Page setup
-st.set_page_config(page_title="FPL Player Database", layout="wide")
-st.title("📊 FPL Player Database")
+st.set_page_config(
+    page_title="Player Database - FPL Analytics",
+    page_icon="⚽",
+    layout="wide"
+)
+
+st.title("🎯 Player Database")
+
+st.markdown("""
+This page will contain a comprehensive database of all FPL players with detailed statistics and visualizations.
+""")
+
+# Placeholder for future implementation
+st.info("This feature is under development. Check back soon!")
 
 # Load data
 df = load_fpl_data()
