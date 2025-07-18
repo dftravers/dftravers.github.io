@@ -81,6 +81,19 @@ article {
     padding-top: 15px;
 }
 
+/* Article links styling for better appearance */
+article a {
+  font-size: 18px; /* Match paragraph font size */
+  color: #de650e;   /* Use the same orange as nav hover */
+  text-decoration: underline; /* Subtle underline */
+  transition: color 0.2s;
+}
+
+article a:hover {
+  color: #de650e;   /* Keep orange on hover */
+  text-decoration: underline;
+}
+
 /* Headings */
 h1 {
     font-size: 25px;
@@ -111,6 +124,11 @@ p {
     font-size: 18px;
     font-weight: normal;
     margin-top: 15px; /* Optional: Adjust spacing if needed */
+}
+
+article p {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 
@@ -328,5 +346,16 @@ p {
 /* Apply orange color when content is visible */
 .toggle-title.active {
     color: #de650e; /* Orange when active (content visible) */
+}
+
+/* Project link: reduce margin below link for closer text */
+.project-link {
+  display: inline-block;
+  margin-bottom: -6px;
+}
+
+.project-link + p {
+  margin-top: 4px;
+  margin-bottom: 25px;
 }
 
