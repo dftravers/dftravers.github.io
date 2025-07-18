@@ -385,3 +385,17 @@ article p {
   margin-bottom: 0.5em;
 }
 
+@media screen and (max-width: 600px) {
+  .profile-pic {
+    display: block;
+    margin: 0 auto 16px auto;
+    float: none;
+    position: static;
+    left: auto;
+    top: auto;
+    width: 60vw;
+    max-width: 220px;
+    height: auto;
+  }
+}
+
