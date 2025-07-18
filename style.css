@@ -385,24 +385,43 @@ article p {
   margin-bottom: 0.5em;
 }
 
-/* Responsive profile picture display rules */
-.mobile-only { display: none !important; }
-.desktop-only { display: block !important; }
+/* About section layout */
+.about-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.about-section .profile-pic {
+  margin: 0;
+  position: static;
+  float: none;
+}
 
 @media screen and (max-width: 600px) {
-  .mobile-only { display: block !important; }
-  .desktop-only { display: none !important; }
-  .profile-pic {
-    display: block !important;
-    margin: 0 auto 16px auto !important;
-    float: none !important;
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .about-section .profile-pic {
     width: 60vw !important;
     max-width: 220px !important;
     height: auto !important;
-    /* border: 3px solid red !important; */
+    margin-bottom: 16px !important;
+  }
+  .project-desc {
+    text-indent: -1em;
+    padding-left: 1.5em;
+    position: relative;
+  }
+  .project-desc::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #de650e;
+    font-size: 1.2em;
+    line-height: 1;
   }
 }
 
