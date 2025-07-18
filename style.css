@@ -385,17 +385,23 @@ article p {
   margin-bottom: 0.5em;
 }
 
+.mobile-only { display: none; }
+.desktop-only { display: block; }
+
 @media screen and (max-width: 600px) {
+  .mobile-only { display: block !important; }
+  .desktop-only { display: none !important; }
   .profile-pic {
-    display: block;
-    margin: 0 auto 16px auto;
-    float: none;
-    position: static;
-    left: auto;
-    top: auto;
-    width: 60vw;
-    max-width: 220px;
-    height: auto;
+    display: block !important;
+    margin: 0 auto 16px auto !important;
+    float: none !important;
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 60vw !important;
+    max-width: 220px !important;
+    height: auto !important;
+    border: 3px solid red !important; /* TEMP: for testing */
   }
 }
 
