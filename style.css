@@ -81,10 +81,6 @@ article {
     padding-top: 15px;
 }
 
-article + article {
-  margin-top: 40px;
-}
-
 /* Headings */
 h1 {
     font-size: 25px;
