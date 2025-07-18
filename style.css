@@ -410,18 +410,5 @@ article p {
     height: auto !important;
     margin-bottom: 16px !important;
   }
-  .project-desc {
-    text-indent: -1em;
-    padding-left: 1.5em;
-    position: relative;
-  }
-  .project-desc::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #de650e;
-    font-size: 1.2em;
-    line-height: 1;
-  }
 }
 
