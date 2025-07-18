@@ -26,6 +26,25 @@ header {
     align-self: end;
     text-align: center;
     color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-pic {
+  width: 205px;
+  height: 205px;
+  object-fit: cover;
+  float: right;
+  margin-left: 40px;      /* You can keep a small margin if you want */
+  margin-bottom: 8px;
+  margin-top: -51px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  vertical-align: top;
+  position: relative;
+  left: -20px;
+  top: 15px;
+  border: 2px solid #de650e;
 }
 
 /* "Dan Travers" link styling */
@@ -357,5 +376,12 @@ article p {
 .project-link + p {
   margin-top: 4px;
   margin-bottom: 25px;
+}
+
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
 }
 
