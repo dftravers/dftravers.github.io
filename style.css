@@ -43,7 +43,7 @@ header {
   vertical-align: top;
   position: relative;
   left: -20px;
-  top: 15px;
+  top: 90px;
   border: 2px solid #de650e;
 }
 
@@ -390,12 +390,15 @@ article p {
   display: flex;
   align-items: flex-start;
   gap: 32px;
+  flex-direction: row-reverse; /* Image on right by default (desktop) */
 }
 
 .about-section .profile-pic {
   margin: 0;
   position: static;
   float: none;
+  margin-top: -40px; /* Move image up on desktop */
+  margin-right: 25px; /* Move image left by 15px on desktop */
 }
 
 @media screen and (max-width: 600px) {
@@ -409,6 +412,7 @@ article p {
     max-width: 220px !important;
     height: auto !important;
     margin-bottom: 16px !important;
+    margin-top: 0 !important; /* Reset for mobile */
   }
 }
 
