@@ -177,6 +177,15 @@ article p {
     padding: 8px;
 }
 
+/* Input field appearance */
+.team-selection input[type="number"] {
+    width: 250px;
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 /* Button container */
 .predict-container {
     display: flex;
@@ -257,10 +266,16 @@ article p {
 
 .error-message {
     text-align: center;
-    color: black;
+    color: #dc3545; /* Red color for errors */
     font-size: 18px;
-    font-weight: normal;
-    margin-top: 15px; /* Optional: Adjust spacing */
+    font-weight: 500; /* Slightly bolder for emphasis */
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: white;
+    border: 2px solid #dc3545; /* Red border */
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
 }
 
 /* Ensure team selection labels match the main paragraph text */

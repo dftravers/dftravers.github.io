@@ -16,12 +16,11 @@
 
     <nav>
         <a href="/superbru/" class="active">SuperBru</a>
-        <a href="/fpl/">FPL</a>
     </nav>
 
     <article>
         <h2>SuperBru</h2>
-        <p>Calculate the scoreline with the highest expected SuperBru points. (Needs updating for the 2025/26 season.)</p>
+        <p>Calculate the scoreline with the highest expected SuperBru points.</p>
 
         <!-- Toggle Title -->
         <h3 onclick="toggleExplanation()" class="toggle-title">
@@ -36,10 +35,7 @@
                 depending on how well you predict the score of a game, as governed by
                 <a href="https://www.superbru.com/premierleague_predictor/how_to_play.php#tab=scoring" target="_blank" rel="noopener noreferrer">these rules</a>. <br><br>
                 
-                This tool uses Expected Goals data from
-                <a href="https://understat.com/league/EPL" target="_blank" rel="noopener noreferrer">Understat</a>
-                to generate a prediction for the Expected Goals of the home and away team. Using these predictions, the probability of different scorelines are estimated. 
-                A simple Python script calculates the expected SuperBru points for each of these scorelines and outputs the best choice. <br><br>
+                This tool takes user-inputted xG values to estimate the probabilities of different scorelines. This is done by modelling the scoring of goals with a Poisson distribution. <br><br>
 
                 The best prediction for each combination of home and away xG is shown in the plot below. Curiously, no draw other than 0-0 is ever the best
                 Superbru prediction. This stems from the fact that draws have fewer scorelines that are considered 'close' by the SuperBru scoring system than wins have. <br><br>
@@ -49,80 +45,35 @@
 
 
         <div class="football-score-container">
-            <!-- Home Team Selection -->
+            <!-- Home xG Input -->
             <div class="team-selection">
-                <label for="team1">Home team:</label>
-                <select id="team1">
-                    <option value="">-- Choose a team --</option>
-                    <option value="Arsenal">Arsenal</option>
-                    <option value="Aston Villa">Aston Villa</option>
-                    <option value="Bournemouth">Bournemouth</option>
-                    <option value="Brentford">Brentford</option>
-                    <option value="Brighton">Brighton</option>
-                    <option value="Chelsea">Chelsea</option>
-                    <option value="Crystal Palace">Crystal Palace</option>
-                    <option value="Everton">Everton</option>
-                    <option value="Fulham">Fulham</option>
-                    <option value="Ipswich">Ipswich</option>
-                    <option value="Leicester">Leicester</option>
-                    <option value="Liverpool">Liverpool</option>
-                    <option value="Manchester City">Manchester City</option>
-                    <option value="Manchester United">Manchester United</option>
-                    <option value="Newcastle United">Newcastle United</option>
-                    <option value="Nottingham Forest">Nottingham Forest</option>
-                    <option value="Southampton">Southampton</option>
-                    <option value="Tottenham">Tottenham</option>
-                    <option value="West Ham">West Ham</option>
-                    <option value="Wolverhampton Wanderers">Wolverhampton Wanderers</option>                    
-                </select>
+                <label for="home-xg">Home xG:</label>
+                <input type="number" id="home-xg" step="0.01" min="0" max="5" placeholder="0.00">
             </div>
 
-            <!-- Away Team Selection -->
+            <!-- Away xG Input -->
             <div class="team-selection">
-                <label for="team2">Away team:</label>
-                <select id="team2">
-                    <option value="">-- Choose a team --</option>
-                    <option value="Arsenal">Arsenal</option>
-                    <option value="Aston Villa">Aston Villa</option>
-                    <option value="Bournemouth">Bournemouth</option>
-                    <option value="Brentford">Brentford</option>
-                    <option value="Brighton">Brighton</option>
-                    <option value="Chelsea">Chelsea</option>
-                    <option value="Crystal Palace">Crystal Palace</option>
-                    <option value="Everton">Everton</option>
-                    <option value="Fulham">Fulham</option>
-                    <option value="Ipswich">Ipswich</option>
-                    <option value="Leicester">Leicester</option>
-                    <option value="Liverpool">Liverpool</option>
-                    <option value="Manchester City">Manchester City</option>
-                    <option value="Manchester United">Manchester United</option>
-                    <option value="Newcastle United">Newcastle United</option>
-                    <option value="Nottingham Forest">Nottingham Forest</option>
-                    <option value="Southampton">Southampton</option>
-                    <option value="Tottenham">Tottenham</option>
-                    <option value="West Ham">West Ham</option>
-                    <option value="Wolverhampton Wanderers">Wolverhampton Wanderers</option>
-                </select>
+                <label for="away-xg">Away xG:</label>
+                <input type="number" id="away-xg" step="0.01" min="0" max="5" placeholder="0.00">
             </div>
 
             <!-- Predict Button -->
             <div class="predict-container">
                 <button id="predict-button">Calculate</button>
             </div>
+
+            <!-- Error Message Container -->
+            <div id="error-message" class="error-message" style="display:none;"></div>
         </div>
 
         <table id="prediction-table" style="display:none;">
             <tr>
-                <td><strong>Predicted Goals (Home)</strong></td>
-                <td id="home-goals"></td>
+                <td><strong>Home xG</strong></td>
+                <td id="home-xg-display"></td>
             </tr>
             <tr>
-                <td><strong>Predicted Goals (Away)</strong></td>
-                <td id="away-goals"></td>
-            </tr>
-            <tr>
-                <td><strong>Most Likely Score</strong></td>
-                <td id="likely-score"></td>
+                <td><strong>Away xG</strong></td>
+                <td id="away-xg-display"></td>
             </tr>
             <tr>
                 <td><strong>Best SuperBru Prediction</strong></td>
@@ -134,73 +85,129 @@
     </article>
 
     <script>
-        // Configuration
-        const API_URL = 'https://backend-agu8.onrender.com'; // Ensure this is your actual backend URL
+        // Lookup database - will be loaded from JSON file
+        let predictionDatabase = null;
+
+        // Helper function to round to 2 decimal places
+        function roundToTwoDecimals(value) {
+            return Math.round(value * 100) / 100;
+        }
+
+        // Helper function to validate and normalize xG value
+        function validateAndNormalizeXg(value) {
+            if (value === '' || value === null || value === undefined) {
+                return null;
+            }
+            
+            const numValue = parseFloat(value);
+            
+            if (isNaN(numValue)) {
+                return null;
+            }
+            
+            // Round to 2 decimal places
+            const rounded = roundToTwoDecimals(numValue);
+            
+            // Check bounds
+            if (rounded < 0 || rounded > 5) {
+                return null;
+            }
+            
+            return rounded;
+        }
 
         // Helper function to reset the display
         function resetDisplay() {
             document.getElementById('prediction-table').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+        }
+
+        // Helper function to show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        // Load the prediction database
+        async function loadDatabase() {
+            try {
+                const response = await fetch('/superbru/predictions-db.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load prediction database');
+                }
+                predictionDatabase = await response.json();
+            } catch (error) {
+                console.error('Error loading database:', error);
+                showError('Error loading prediction database. Please refresh the page.');
+            }
         }
 
         // Initialize the calculate button functionality
-        document.getElementById('predict-button').addEventListener('click', async function() {
-            const team1 = document.getElementById('team1').value;
-            const team2 = document.getElementById('team2').value;
+        document.getElementById('predict-button').addEventListener('click', function() {
+            const homeXgInput = document.getElementById('home-xg').value;
+            const awayXgInput = document.getElementById('away-xg').value;
             const predictButton = document.getElementById('predict-button');
 
             // Reset display
             resetDisplay();
 
-            // Validate selections
-            if (!team1 || !team2) {
-                alert('Please select both teams');
+            // Validate and normalize inputs
+            const homeXg = validateAndNormalizeXg(homeXgInput);
+            const awayXg = validateAndNormalizeXg(awayXgInput);
+
+            // Check if both values are provided
+            if (homeXg === null || awayXg === null) {
+                showError('The xG values must be between 0.00 and 5.00.');
                 return;
             }
 
-            if (team1 === team2) {
-                alert('Please select different teams');
+            // Check if database is loaded
+            if (!predictionDatabase) {
+                showError('Prediction database not loaded. Please refresh the page.');
                 return;
             }
 
-            // Change button text to "Calculating..." and disable it
-            predictButton.textContent = 'Calculating...';
-            predictButton.disabled = true;
-
-            try {
-                const response = await fetch(`${API_URL}/predict`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ team1, team2 })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-
-                const data = await response.json();
-
-                // Update table cells
-                document.getElementById('home-goals').textContent = data['Predicted Goals (Home)'];
-                document.getElementById('away-goals').textContent = data['Predicted Goals (Away)'];
-                document.getElementById('likely-score').textContent = data['Most Likely Score'];
-                document.getElementById('best-prediction').textContent = data['Best SuperBru Prediction'];
-
-                // Show the table
-                document.getElementById('prediction-table').style.display = 'table';
-
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error calculating prediction. Please try again.');
+            // Create lookup key (format: "homeXg_awayXg" with 2 decimal places)
+            const key = `${homeXg.toFixed(2)}_${awayXg.toFixed(2)}`;
+            
+            // Lookup prediction
+            const prediction = predictionDatabase[key];
+            
+            if (!prediction) {
+                showError(`No prediction found for Home xG: ${homeXg.toFixed(2)}, Away xG: ${awayXg.toFixed(2)}`);
+                return;
             }
 
-            // Reset button text and re-enable it
-            predictButton.textContent = 'Calculate';
-            predictButton.disabled = false;
+            // Update table cells
+            document.getElementById('home-xg-display').textContent = homeXg.toFixed(2);
+            document.getElementById('away-xg-display').textContent = awayXg.toFixed(2);
+            
+            // Check if prediction indicates equal xG values
+            const bestPredictionElement = document.getElementById('best-prediction');
+            if (prediction.endsWith('|EQUAL')) {
+                const basePrediction = prediction.replace('|EQUAL', '');
+                // Reverse the scoreline for the alternative
+                const [homeGoals, awayGoals] = basePrediction.split('-').map(Number);
+                const reversedPrediction = `${awayGoals}-${homeGoals}`;
+                // Display home team with higher goals first
+                const firstPrediction = homeGoals >= awayGoals ? basePrediction : reversedPrediction;
+                const secondPrediction = homeGoals >= awayGoals ? reversedPrediction : basePrediction;
+                bestPredictionElement.innerHTML = `${firstPrediction} or ${secondPrediction}<br>Go with your gut!`;
+            } else {
+                bestPredictionElement.textContent = prediction;
+            }
+
+            // Show the table
+            document.getElementById('prediction-table').style.display = 'table';
         });
 
-        // Add event listeners for team selection to clear error messages
-        document.getElementById('team1').addEventListener('change', resetDisplay);
-        document.getElementById('team2').addEventListener('change', resetDisplay);
+        // Add event listeners for input changes to clear error messages
+        document.getElementById('home-xg').addEventListener('input', resetDisplay);
+        document.getElementById('away-xg').addEventListener('input', resetDisplay);
+
+        // Load database on page load
+        loadDatabase();
     </script>
 
     <script>
