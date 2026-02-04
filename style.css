@@ -428,6 +428,12 @@ article p {
   text-align: center;
   text-decoration: none;
   color: #000;
+  font-size: inherit;
+}
+
+.book-card:hover {
+  text-decoration: none;
+  color: #000;
 }
 
 .book-card:hover .book-title {
