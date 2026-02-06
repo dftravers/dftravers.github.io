@@ -418,8 +418,9 @@ article p {
 
 /* Books grid */
 .books-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
   margin-top: 20px;
 }
@@ -429,6 +430,7 @@ article p {
   text-decoration: none;
   color: #000;
   font-size: inherit;
+  width: calc((100% - 50px) / 3);
 }
 
 .book-card:hover {
@@ -441,9 +443,9 @@ article p {
 }
 
 .book-card img {
-  width: 100%;
-  max-width: 130px;
-  height: auto;
+  width: auto;
+  height: 280px;
+  object-fit: cover;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
   border-radius: 3px;
   transition: box-shadow 0.2s;
@@ -470,8 +472,10 @@ article p {
 
 @media screen and (max-width: 500px) {
   .books-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
+  }
+  .book-card img {
+    height: 200px;
   }
 }
 
