@@ -69,19 +69,10 @@
 
         <table id="prediction-table" style="display:none;">
             <tr>
-                <td><strong>Home xG</strong></td>
-                <td id="home-xg-display"></td>
-            </tr>
-            <tr>
-                <td><strong>Away xG</strong></td>
-                <td id="away-xg-display"></td>
-            </tr>
-            <tr>
                 <td><strong>Best SuperBru Prediction</strong></td>
                 <td id="best-prediction"></td>
             </tr>
         </table>
-
 
     </article>
 
@@ -179,10 +170,6 @@
                 showError(`No prediction found for Home xG: ${homeXg.toFixed(2)}, Away xG: ${awayXg.toFixed(2)}`);
                 return;
             }
-
-            // Update table cells
-            document.getElementById('home-xg-display').textContent = homeXg.toFixed(2);
-            document.getElementById('away-xg-display').textContent = awayXg.toFixed(2);
             
             // Check if prediction indicates equal xG values
             const bestPredictionElement = document.getElementById('best-prediction');
